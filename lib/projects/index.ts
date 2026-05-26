@@ -26,16 +26,20 @@ const PROJECTS: Project[] = [
   locationRouting,
 ];
 
+const PROJECT_MAP = new Map<string, Project>(
+  PROJECTS.map((p) => [p.slug, p]),
+);
+
 export function getAllProjects(): Project[] {
   return PROJECTS;
 }
 
 export function getProjectBySlug(slug: string): Project | undefined {
-  return PROJECTS.find((p) => p.slug === slug);
+  return PROJECT_MAP.get(slug);
 }
 
 export function getProjectsBySlugs(slugs: string[]): Project[] {
   return slugs
-    .map((slug) => PROJECTS.find((p) => p.slug === slug))
+    .map((slug) => PROJECT_MAP.get(slug))
     .filter((p): p is Project => p !== undefined);
 }

@@ -3,15 +3,18 @@ interface CompanyConfig {
   projectSlugs: string[];
 }
 
-const COMPANIES: Record<string, CompanyConfig> = {
-  fieldguide: {
-    color: '#2EB85A',
-    projectSlugs: ['ai-recipe-search', 'oncall-automation', 'location-routing'],
-  },
-};
+const COMPANY_MAP = new Map<string, CompanyConfig>([
+  [
+    'fieldguide',
+    {
+      color: '#2EB85A',
+      projectSlugs: ['ai-recipe-search', 'oncall-automation', 'location-routing'],
+    },
+  ],
+]);
 
 export type { CompanyConfig };
 
 export function getCompanyConfig(name: string): CompanyConfig | undefined {
-  return COMPANIES[name.toLowerCase()];
+  return COMPANY_MAP.get(name.toLowerCase());
 }
