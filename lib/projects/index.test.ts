@@ -9,8 +9,8 @@ import {
 
 const ALL_SLUGS = [
   aiRecipeSearch.slug,
-  oncallAutomation.slug,
   locationRouting.slug,
+  oncallAutomation.slug,
 ];
 
 describe('getProjectsForCompany', () => {

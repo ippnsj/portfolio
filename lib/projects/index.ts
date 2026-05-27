@@ -36,8 +36,8 @@ export interface Project {
 
 const PROJECTS: Project[] = [
   aiRecipeSearch,
-  oncallAutomation,
   locationRouting,
+  oncallAutomation,
 ];
 
 const PROJECT_MAP = new Map<string, Project>(
