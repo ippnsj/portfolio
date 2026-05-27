@@ -23,6 +23,7 @@ Supports per-recipient customization via URL params: a registered company name m
 - [TypeScript](https://www.typescriptlang.org/) (strict mode)
 - [Tailwind CSS v4](https://tailwindcss.com/) (CSS-first config via `@theme`)
 - [Vitest](https://vitest.dev/) (testing)
+- [Claude Code](https://claude.com/claude-code) with skills (see `.claude/skills/`)
 - [Vercel](https://vercel.com/) (hosting)
 
 ## Getting started
