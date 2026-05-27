@@ -8,7 +8,7 @@ interface ProjectsProps {
 
 export function Projects({ projects, brandColor }: ProjectsProps) {
   return (
-    <section className="py-10">
+    <section className="pt-10 pb-4">
       <h2 className="text-2xl font-semibold">Projects</h2>
       <div className="mt-6 flex flex-col gap-4">
         {projects.map((project) => (
