@@ -3,9 +3,22 @@ import { aiRecipeSearch } from './ai-recipe-search';
 import { locationRouting } from './location-routing';
 import { oncallAutomation } from './oncall-automation';
 
+export interface Media {
+  type: 'image' | 'video';
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
+export interface ProjectSection {
+  content: string[];
+  media?: Media[];
+}
+
 export interface KeyDecision {
   title: string;
   description: string[];
+  media?: Media[];
 }
 
 export interface Project {
@@ -15,10 +28,10 @@ export interface Project {
   stack: string[];
   role: string;
   summary: string;
-  background: string[];
-  problem: string[];
+  background: ProjectSection;
+  problem: ProjectSection;
   keyDecisions: KeyDecision[];
-  result: string[];
+  result: ProjectSection;
 }
 
 const PROJECTS: Project[] = [
