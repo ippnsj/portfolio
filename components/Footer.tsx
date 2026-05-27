@@ -4,7 +4,7 @@ import { CONTACT_LINKS } from '@/lib/contact';
 export function Footer() {
   return (
     <footer className="mt-8 border-t border-gray-200 py-8">
-      <nav className="flex gap-6" aria-label="Footer links">
+      <nav className="flex flex-wrap gap-x-6 gap-y-2" aria-label="Footer links">
         {CONTACT_LINKS.map((link) => (
           <a
             key={link.label}
