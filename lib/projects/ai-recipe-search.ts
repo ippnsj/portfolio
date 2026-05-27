@@ -64,7 +64,7 @@ export const aiRecipeSearch: Project = {
     media: [
         {
           type: 'video',
-          src: '/projects/ai-recipe-search/ai_recipe_demo.mp4',
+          src: '/projects/ai-recipe-search/demo.mp4',
           alt: 'Demo: recipe search to ingredient extraction to multi-search entry flow',
         },
       ],

@@ -5,36 +5,31 @@
   <!-- Title -->
   <text x="400" y="40" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1a1a" letter-spacing="1">END-OF-ROTATION REPORT FLOW</text>
 
-  <!-- Section 1: Sources (4 platforms on left) -->
-  <text x="40" y="100" font-size="11" font-weight="700" fill="#999" letter-spacing="1.5">SOURCES</text>
+  <!-- Section 1: Sources (3 platforms on left) -->
+  <text x="40" y="110" font-size="11" font-weight="700" fill="#999" letter-spacing="1.5">SOURCES</text>
 
   <g>
-    <rect x="40" y="120" width="140" height="40" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
-    <text x="110" y="145" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">New Relic</text>
+    <rect x="40" y="140" width="140" height="40" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+    <text x="110" y="165" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">New Relic</text>
   </g>
   <g>
-    <rect x="40" y="170" width="140" height="40" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
-    <text x="110" y="195" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">OpsGenie</text>
+    <rect x="40" y="200" width="140" height="40" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+    <text x="110" y="225" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">Jira</text>
   </g>
   <g>
-    <rect x="40" y="220" width="140" height="40" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
-    <text x="110" y="245" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">Shakebug</text>
-  </g>
-  <g>
-    <rect x="40" y="270" width="140" height="40" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
-    <text x="110" y="295" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">Slack</text>
+    <rect x="40" y="260" width="140" height="40" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+    <text x="110" y="285" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">OpsGenie</text>
   </g>
 
   <!-- Arrows from sources to n8n -->
   <g stroke="#999" stroke-width="1.5" fill="none">
-    <path d="M 180 140 L 295 205" marker-end="url(#arrow)"/>
-    <path d="M 180 190 L 295 215" marker-end="url(#arrow)"/>
-    <path d="M 180 240 L 295 225" marker-end="url(#arrow)"/>
-    <path d="M 180 290 L 295 235" marker-end="url(#arrow)"/>
+    <path d="M 180 160 L 295 210" marker-end="url(#arrow)"/>
+    <path d="M 180 220 L 295 220" marker-end="url(#arrow)"/>
+    <path d="M 180 280 L 295 230" marker-end="url(#arrow)"/>
   </g>
 
   <!-- Section 2: n8n workflow -->
-  <text x="370" y="100" text-anchor="middle" font-size="11" font-weight="700" fill="#999" letter-spacing="1.5">WORKFLOW</text>
+  <text x="370" y="110" text-anchor="middle" font-size="11" font-weight="700" fill="#999" letter-spacing="1.5">WORKFLOW</text>
 
   <g>
     <rect x="295" y="195" width="160" height="50" rx="8" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="1.5"/>
@@ -55,7 +50,7 @@
   </g>
 
   <!-- Section 3: Outputs (right) -->
-  <text x="760" y="100" text-anchor="end" font-size="11" font-weight="700" fill="#999" letter-spacing="1.5">OUTPUTS</text>
+  <text x="760" y="110" text-anchor="end" font-size="11" font-weight="700" fill="#999" letter-spacing="1.5">OUTPUTS</text>
 
   <!-- Output: Slack handover report -->
   <g>
@@ -87,7 +82,7 @@
 
   <!-- Caption -->
   <text x="400" y="510" text-anchor="middle" font-size="12" fill="#666" font-style="italic">
-    Four platforms become one report. Unresolved tickets auto-reassign to the next on-call → no manual list to maintain.
+    Three platforms become one report. Unresolved tickets auto-reassign to the next on-call — no manual list to maintain.
   </text>
 
   <!-- Arrow definition -->
