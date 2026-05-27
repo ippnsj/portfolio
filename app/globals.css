@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand: var(--brand-color, #4169E1);
+  --color-brand: #4169E1;
   --color-foreground: #171717;
   --color-muted: #6b7280;
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;

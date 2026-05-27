@@ -10,7 +10,7 @@ const geistSans = Geist({
 export const metadata: Metadata = {
   title: 'Sojung Lee — Portfolio',
   description:
-    'Mobile software engineer building reliable, user-focused products.',
+    'Software engineer building reliable, user-focused products. Interested in enhancing team effectiveness.',
 };
 
 export default function RootLayout({
