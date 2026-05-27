@@ -1,3 +1,4 @@
+import { FiCode } from 'react-icons/fi';
 import { CONTACT_LINKS } from '@/lib/contact';
 
 export function Footer() {
@@ -19,6 +20,15 @@ export function Footer() {
           </a>
         ))}
       </nav>
+      <a
+        href="https://github.com/ippnsj/portfolio"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-4 flex items-center gap-1.5 text-sm text-muted hover:text-foreground"
+      >
+        <FiCode size={14} />
+        View source on GitHub
+      </a>
     </footer>
   );
 }
