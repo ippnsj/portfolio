@@ -3,10 +3,11 @@ import { ProjectCard } from './ProjectCard';
 
 interface ProjectsProps {
   projects: Project[];
-  brandColor?: string;
+  company?: string;
+  color?: string;
 }
 
-export function Projects({ projects, brandColor }: ProjectsProps) {
+export function Projects({ projects, company, color }: ProjectsProps) {
   return (
     <section className="pt-10 pb-4">
       <h2 className="text-2xl font-semibold">Projects</h2>
@@ -15,7 +16,8 @@ export function Projects({ projects, brandColor }: ProjectsProps) {
           <ProjectCard
             key={project.slug}
             project={project}
-            brandColor={brandColor}
+            company={company}
+            color={color}
           />
         ))}
       </div>

@@ -1,5 +1,21 @@
 import { describe, expect, test } from 'vitest';
-import { resolveBrandColor } from './brand';
+import { parseBrandParams, resolveBrandColor } from './brand';
+
+describe('parseBrandParams', () => {
+  test('extracts company and color strings', () => {
+    expect(parseBrandParams({ company: 'fieldguide', color: 'FF3B30' }))
+      .toEqual({ company: 'fieldguide', color: 'FF3B30' });
+  });
+
+  test('returns undefined for missing params', () => {
+    expect(parseBrandParams({})).toEqual({ company: undefined, color: undefined });
+  });
+
+  test('ignores array values', () => {
+    expect(parseBrandParams({ company: ['a', 'b'], color: 'FF3B30' }))
+      .toEqual({ company: undefined, color: 'FF3B30' });
+  });
+});
 
 describe('resolveBrandColor', () => {
   test('returns company color for registered company', () => {

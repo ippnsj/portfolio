@@ -1,8 +1,7 @@
-import { Footer } from '@/components/Footer';
 import { Hero } from '@/components/Hero';
 import { Projects } from '@/components/Projects';
 import { Skills } from '@/components/Skills';
-import { resolveBrandColor } from '@/lib/brand';
+import { parseBrandParams, resolveBrandColor } from '@/lib/brand';
 import { getProjectsForCompany } from '@/lib/projects';
 
 export default async function Home({
@@ -10,12 +9,7 @@ export default async function Home({
 }: {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  const params = await searchParams;
-  const company =
-    typeof params.company === 'string' ? params.company : undefined;
-  const color =
-    typeof params.color === 'string' ? params.color : undefined;
-
+  const { company, color } = parseBrandParams(await searchParams);
   const brandColor = resolveBrandColor({ company, color });
   const projects = getProjectsForCompany(company);
 
@@ -29,9 +23,8 @@ export default async function Home({
       }
     >
       <Hero />
-      <Projects projects={projects} brandColor={brandColor} />
+      <Projects projects={projects} company={company} color={color} />
       <Skills />
-      <Footer />
     </main>
   );
 }

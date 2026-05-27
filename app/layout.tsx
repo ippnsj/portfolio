@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Geist } from 'next/font/google';
+import { Footer } from '@/components/Footer';
 import './globals.css';
 
 const geistSans = Geist({
@@ -20,7 +21,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} antialiased`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <div className="mx-auto max-w-3xl px-6">
+          <Footer />
+        </div>
+      </body>
     </html>
   );
 }

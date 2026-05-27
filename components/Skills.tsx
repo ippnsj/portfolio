@@ -1,4 +1,5 @@
 import { SKILL_CATEGORIES } from '@/lib/skills';
+import { Tag } from './Tag';
 
 export function Skills() {
   return (
@@ -12,12 +13,7 @@ export function Skills() {
             </h3>
             <div className="flex flex-wrap gap-2">
               {category.items.map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full bg-gray-100 px-3 py-1 text-sm"
-                >
-                  {item}
-                </span>
+                <Tag key={item}>{item}</Tag>
               ))}
             </div>
           </div>
