@@ -2,7 +2,7 @@ import { CONTACT_LINKS } from '@/lib/contact';
 
 export function Hero() {
   return (
-    <section className="py-24">
+    <section className="pt-24 pb-4">
       <h1 className="text-5xl font-bold tracking-tight">Sojung Lee</h1>
       <p className="mt-4 text-xl text-muted">Software Engineer</p>
       <nav className="mt-3 flex gap-6" aria-label="Contact links">
