@@ -2,7 +2,7 @@
 
 Personal portfolio site for Sojung Lee.
 
-**[🔗 Live site](https://sojungportfolio.vercel.app)**
+**[🔗 Live site](https://sojunglee.vercel.app)**
 
 ## About
 
