@@ -2,16 +2,35 @@ import { describe, expect, test } from 'vitest';
 import { aiRecipeSearch } from './ai-recipe-search';
 import { locationRouting } from './location-routing';
 import { oncallAutomation } from './oncall-automation';
-import { getAllProjects, getProjectBySlug, getProjectsBySlugs } from './index';
+import {
+  getProjectBySlug,
+  getProjectsForCompany,
+} from './index';
 
-describe('getAllProjects', () => {
-  test('returns all projects', () => {
-    const slugs = getAllProjects().map((p) => p.slug);
+const ALL_SLUGS = [
+  aiRecipeSearch.slug,
+  oncallAutomation.slug,
+  locationRouting.slug,
+];
+
+describe('getProjectsForCompany', () => {
+  test('returns all projects when no company', () => {
+    const slugs = getProjectsForCompany().map((p) => p.slug);
+    expect(slugs).toEqual(ALL_SLUGS);
+  });
+
+  test('returns filtered projects for registered company', () => {
+    const slugs = getProjectsForCompany('fieldguide').map((p) => p.slug);
     expect(slugs).toEqual([
       aiRecipeSearch.slug,
       oncallAutomation.slug,
       locationRouting.slug,
     ]);
+  });
+
+  test('returns all projects for unknown company', () => {
+    const slugs = getProjectsForCompany('unknown').map((p) => p.slug);
+    expect(slugs).toEqual(ALL_SLUGS);
   });
 });
 
@@ -22,24 +41,5 @@ describe('getProjectBySlug', () => {
 
   test('returns undefined for unknown slug', () => {
     expect(getProjectBySlug('nonexistent')).toBeUndefined();
-  });
-});
-
-describe('getProjectsBySlugs', () => {
-  test('returns matching projects in requested order', () => {
-    const projects = getProjectsBySlugs([
-      locationRouting.slug,
-      aiRecipeSearch.slug,
-    ]);
-    expect(projects).toEqual([locationRouting, aiRecipeSearch]);
-  });
-
-  test('skips unknown slugs', () => {
-    const projects = getProjectsBySlugs([
-      aiRecipeSearch.slug,
-      'nonexistent',
-      locationRouting.slug,
-    ]);
-    expect(projects).toEqual([aiRecipeSearch, locationRouting]);
   });
 });

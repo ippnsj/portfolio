@@ -1,5 +1,7 @@
 import { Hero } from '@/components/Hero';
+import { Projects } from '@/components/Projects';
 import { resolveBrandColor } from '@/lib/brand';
+import { getProjectsForCompany } from '@/lib/projects';
 
 export default async function Home({
   searchParams,
@@ -13,6 +15,7 @@ export default async function Home({
     typeof params.color === 'string' ? params.color : undefined;
 
   const brandColor = resolveBrandColor({ company, color });
+  const projects = getProjectsForCompany(company);
 
   return (
     <main
@@ -24,6 +27,7 @@ export default async function Home({
       }
     >
       <Hero />
+      <Projects projects={projects} brandColor={brandColor} />
     </main>
   );
 }
