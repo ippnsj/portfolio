@@ -1,10 +1,18 @@
 import { FiCode } from 'react-icons/fi';
 import { CONTACT_LINKS } from '@/lib/contact';
+import { getCurrentLanguage } from '@/lib/language';
+import { getTranslations } from '@/lib/translations';
 
-export function Footer() {
+export async function Footer() {
+  const language = await getCurrentLanguage();
+  const translations = getTranslations(language);
+
   return (
     <footer className="mt-8 border-t border-gray-200 py-8">
-      <nav className="flex flex-wrap gap-x-6 gap-y-2" aria-label="Footer links">
+      <nav
+        className="flex flex-wrap gap-x-6 gap-y-2"
+        aria-label="Footer links"
+      >
         {CONTACT_LINKS.map((link) => (
           <a
             key={link.label}
@@ -27,7 +35,7 @@ export function Footer() {
         className="mt-4 flex items-center gap-1.5 text-sm text-muted hover:text-foreground"
       >
         <FiCode size={14} />
-        View source on GitHub
+        {translations.footer.sourceCode}
       </a>
     </footer>
   );

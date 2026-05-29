@@ -7,8 +7,15 @@ import { parseBrandParams, resolveBrandColor } from '@/lib/brand';
 import { DEFAULT_LANGUAGE, getCurrentLanguage } from '@/lib/language';
 import type { Media, Project } from '@/lib/projects';
 import { getProjectBySlug, getProjectsForCompany } from '@/lib/projects';
+import { getTranslations, type Translations } from '@/lib/translations';
 
-function ProjectHero({ project }: { project: Project }) {
+function ProjectHero({
+  project,
+  translations,
+}: {
+  project: Project;
+  translations: Translations;
+}) {
   return (
     <section className="pb-4">
       <h1 className="text-4xl font-bold tracking-tight">{project.title}</h1>
@@ -17,11 +24,15 @@ function ProjectHero({ project }: { project: Project }) {
       </p>
       <dl className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
         <div>
-          <dt className="inline font-medium text-foreground">Period</dt>{' '}
+          <dt className="inline font-medium text-foreground">
+            {translations.detail.period}
+          </dt>{' '}
           <dd className="inline">{project.period}</dd>
         </div>
         <div>
-          <dt className="inline font-medium text-foreground">Role</dt>{' '}
+          <dt className="inline font-medium text-foreground">
+            {translations.detail.role}
+          </dt>{' '}
           <dd className="inline">{project.role}</dd>
         </div>
       </dl>
@@ -141,6 +152,7 @@ export default async function ProjectPage({
   const { slug } = await params;
   const brandParams = parseBrandParams(await searchParams);
   const language = await getCurrentLanguage(brandParams.company);
+  const translations = getTranslations(language);
   const project = getProjectBySlug({ slug, language });
   if (!project) notFound();
 
@@ -155,19 +167,19 @@ export default async function ProjectPage({
           : undefined
       }
     >
-      <ProjectHero project={project} />
+      <ProjectHero project={project} translations={translations} />
 
-      <Section title="Background">
+      <Section title={translations.detail.background}>
         <Paragraphs items={project.background.content} />
         {project.background.media && <MediaList items={project.background.media} />}
       </Section>
 
-      <Section title="Problem">
+      <Section title={translations.detail.problem}>
         <Paragraphs items={project.problem.content} />
         {project.problem.media && <MediaList items={project.problem.media} />}
       </Section>
 
-      <Section title="Key Decisions">
+      <Section title={translations.detail.keyDecisions}>
         <div className="space-y-8">
           {project.keyDecisions.map((decision) => (
             <SubSection key={decision.title} title={decision.title}>
@@ -178,7 +190,7 @@ export default async function ProjectPage({
         </div>
       </Section>
 
-      <Section title="Result / Impact">
+      <Section title={translations.detail.result}>
         {project.result.media && <MediaList items={project.result.media} />}
         <ul className="space-y-3 text-lg leading-relaxed text-muted">
           {project.result.content.map((item, i) => (

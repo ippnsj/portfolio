@@ -4,6 +4,7 @@ import { Skills } from '@/components/Skills';
 import { parseBrandParams, resolveBrandColor } from '@/lib/brand';
 import { getCurrentLanguage } from '@/lib/language';
 import { getProjectsForCompany } from '@/lib/projects';
+import { getTranslations } from '@/lib/translations';
 
 export default async function Home({
   searchParams,
@@ -13,6 +14,7 @@ export default async function Home({
   const { company, color } = parseBrandParams(await searchParams);
   const brandColor = resolveBrandColor({ company, color });
   const language = await getCurrentLanguage(company);
+  const translations = getTranslations(language);
   const projects = getProjectsForCompany({ company, language });
 
   return (
@@ -24,9 +26,9 @@ export default async function Home({
           : undefined
       }
     >
-      <Hero />
-      <Projects projects={projects} company={company} color={color} />
-      <Skills />
+      <Hero translations={translations} />
+      <Projects projects={projects} company={company} color={color} translations={translations} />
+      <Skills translations={translations} />
     </main>
   );
 }

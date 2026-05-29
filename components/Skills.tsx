@@ -1,10 +1,13 @@
 import { SKILL_CATEGORIES } from '@/lib/skills';
+import type { Translations } from '@/lib/translations';
 import { Tag } from './Tag';
 
-export function Skills() {
+export function Skills({ translations }: { translations: Translations }) {
   return (
     <section className="pt-10 pb-4">
-      <h2 className="text-2xl font-semibold">Skills</h2>
+      <h2 className="text-2xl font-semibold">
+        {translations.sections.skills}
+      </h2>
       <div className="mt-6 flex flex-col gap-4">
         {SKILL_CATEGORIES.map((category) => (
           <div key={category.name} className="flex items-baseline gap-3">
