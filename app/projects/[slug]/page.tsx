@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import { Tag } from '@/components/Tag';
 import { parseBrandParams, resolveBrandColor } from '@/lib/brand';
+import { DEFAULT_LANGUAGE, getCurrentLanguage } from '@/lib/language';
 import type { Media, Project } from '@/lib/projects';
 import { getProjectBySlug, getProjectsForCompany } from '@/lib/projects';
 
@@ -106,16 +107,23 @@ function MediaList({ items }: { items: Media[] }) {
 }
 
 export function generateStaticParams(): { slug: string }[] {
-  return getProjectsForCompany().map((p) => ({ slug: p.slug }));
+  return getProjectsForCompany({
+    company: undefined,
+    language: DEFAULT_LANGUAGE,
+  }).map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const { company } = parseBrandParams(await searchParams);
+  const language = await getCurrentLanguage(company);
+  const project = getProjectBySlug({ slug, language });
   if (!project) return { title: 'Project Not Found' };
   return {
     title: `${project.title} — Sojung Lee`,
@@ -131,10 +139,11 @@ export default async function ProjectPage({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const brandParams = parseBrandParams(await searchParams);
+  const language = await getCurrentLanguage(brandParams.company);
+  const project = getProjectBySlug({ slug, language });
   if (!project) notFound();
 
-  const brandParams = parseBrandParams(await searchParams);
   const brandColor = resolveBrandColor(brandParams);
 
   return (

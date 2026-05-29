@@ -1,62 +1,62 @@
 import { getCompanyConfig } from '@/lib/companies';
+import type { Language } from '@/lib/language/types';
 import { aiRecipeSearch } from './ai-recipe-search';
 import { locationRouting } from './location-routing';
 import { oncallAutomation } from './oncall-automation';
+import type { Project, ProjectGroup } from './types';
 import { vlpDynamicBottomNavBar } from './vlp-bottom-nav-bar';
 
-export interface Media {
-  type: 'image' | 'video';
-  src: string;
-  alt: string;
-  caption?: string;
-}
+export type { KeyDecision, Media, Project, ProjectSection } from './types';
 
-export interface ProjectSection {
-  content: string[];
-  media?: Media[];
-}
-
-export interface KeyDecision {
-  title: string;
-  description: string[];
-  media?: Media[];
-}
-
-export interface Project {
-  slug: string;
-  title: string;
-  period: string;
-  stack: string[];
-  role: string;
-  summary: string;
-  background: ProjectSection;
-  problem: ProjectSection;
-  keyDecisions: KeyDecision[];
-  result: ProjectSection;
-}
-
-const PROJECTS: Project[] = [
+const PROJECT_GROUPS: ProjectGroup[] = [
   aiRecipeSearch,
   locationRouting,
   oncallAutomation,
   vlpDynamicBottomNavBar,
 ];
 
-const PROJECT_MAP = new Map<string, Project>(
-  PROJECTS.map((p) => [p.slug, p]),
-);
+const PROJECTS_BY_LANGUAGE: Record<Language, Project[]> = {
+  en: PROJECT_GROUPS.map((g) => g.en),
+  ko: PROJECT_GROUPS.map((g) => g.ko),
+};
 
-export function getProjectBySlug(slug: string): Project | undefined {
-  return PROJECT_MAP.get(slug);
+const PROJECT_MAP_BY_LANGUAGE: Record<Language, Map<string, Project>> = {
+  en: new Map(PROJECTS_BY_LANGUAGE.en.map((p) => [p.slug, p])),
+  ko: new Map(PROJECTS_BY_LANGUAGE.ko.map((p) => [p.slug, p])),
+};
+
+export function getProjectBySlug({
+  slug,
+  language,
+}: {
+  slug: string;
+  language: Language;
+}): Project | undefined {
+  return PROJECT_MAP_BY_LANGUAGE[language].get(slug);
 }
 
-function getProjectsBySlugs(slugs: string[]): Project[] {
+function getProjectsBySlugs({
+  slugs,
+  language,
+}: {
+  slugs: string[];
+  language: Language;
+}): Project[] {
+  const map = PROJECT_MAP_BY_LANGUAGE[language];
   return slugs
-    .map((slug) => PROJECT_MAP.get(slug))
+    .map((slug) => map.get(slug))
     .filter((p): p is Project => p !== undefined);
 }
 
-export function getProjectsForCompany(company?: string): Project[] {
+export function getProjectsForCompany({
+  company,
+  language,
+}: {
+  company: string | undefined;
+  language: Language;
+}): Project[] {
   const config = company ? getCompanyConfig(company) : undefined;
-  return config ? getProjectsBySlugs(config.projectSlugs) : PROJECTS;
+  return config
+    ? getProjectsBySlugs({ slugs: config.projectSlugs, language })
+    : PROJECTS_BY_LANGUAGE[language];
 }

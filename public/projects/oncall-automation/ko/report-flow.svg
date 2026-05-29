@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540" font-family="system-ui, -apple-system, sans-serif">
+  <!-- Background -->
+  <rect width="800" height="540" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1a1a" letter-spacing="1">END-OF-ROTATION REPORT FLOW</text>
+
+  <!-- Section 1: Sources (3 platforms on left) -->
+  <text x="40" y="110" font-size="11" font-weight="700" fill="#999" letter-spacing="1.5">SOURCES</text>
+
+  <g>
+    <rect x="40" y="140" width="140" height="40" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+    <text x="110" y="165" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">New Relic</text>
+  </g>
+  <g>
+    <rect x="40" y="200" width="140" height="40" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+    <text x="110" y="225" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">Jira</text>
+  </g>
+  <g>
+    <rect x="40" y="260" width="140" height="40" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+    <text x="110" y="285" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">OpsGenie</text>
+  </g>
+
+  <!-- Arrows from sources to n8n -->
+  <g stroke="#999" stroke-width="1.5" fill="none">
+    <path d="M 180 160 L 295 210" marker-end="url(#arrow)"/>
+    <path d="M 180 220 L 295 220" marker-end="url(#arrow)"/>
+    <path d="M 180 280 L 295 230" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- Section 2: n8n workflow -->
+  <text x="370" y="110" text-anchor="middle" font-size="11" font-weight="700" fill="#999" letter-spacing="1.5">WORKFLOW</text>
+
+  <g>
+    <rect x="295" y="195" width="160" height="50" rx="8" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="1.5"/>
+    <text x="375" y="218" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">n8n workflow</text>
+    <text x="375" y="234" text-anchor="middle" font-size="11" fill="#666">collect &amp; route</text>
+  </g>
+
+  <!-- Arrow to LLM -->
+  <g stroke="#999" stroke-width="1.5" fill="none">
+    <path d="M 455 220 L 510 220" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- LLM processing -->
+  <g>
+    <rect x="510" y="195" width="160" height="50" rx="8" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="1.5"/>
+    <text x="590" y="218" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">LLM</text>
+    <text x="590" y="234" text-anchor="middle" font-size="11" fill="#666">analyze &amp; summarize</text>
+  </g>
+
+  <!-- Section 3: Outputs (right) -->
+  <text x="760" y="110" text-anchor="end" font-size="11" font-weight="700" fill="#999" letter-spacing="1.5">OUTPUTS</text>
+
+  <!-- Output: Slack handover report -->
+  <g>
+    <rect x="510" y="285" width="250" height="90" rx="8" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="2.5"/>
+    <text x="635" y="310" text-anchor="middle" font-size="12" font-weight="700" fill="#1a1a1a">Slack handover report</text>
+    <line x1="530" y1="320" x2="740" y2="320" stroke="#E5E5E5" stroke-width="1"/>
+    <text x="635" y="338" text-anchor="middle" font-size="11" fill="#666">• Per-page SLI summary</text>
+    <text x="635" y="353" text-anchor="middle" font-size="11" fill="#666">• Closed vs unresolved tickets</text>
+    <text x="635" y="368" text-anchor="middle" font-size="11" fill="#666">• Top 10 alerts</text>
+  </g>
+
+  <!-- Arrow from LLM down to Slack report -->
+  <g stroke="#999" stroke-width="1.5" fill="none">
+    <path d="M 590 245 L 590 285" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- Output: Auto-reassignment -->
+  <g>
+    <rect x="510" y="400" width="250" height="65" rx="8" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="2.5"/>
+    <text x="635" y="425" text-anchor="middle" font-size="12" font-weight="700" fill="#1a1a1a">Jira auto-reassignment</text>
+    <line x1="530" y1="435" x2="740" y2="435" stroke="#E5E5E5" stroke-width="1"/>
+    <text x="635" y="453" text-anchor="middle" font-size="11" fill="#666">Unresolved tickets → next on-call</text>
+  </g>
+
+  <!-- Arrow from LLM section down to auto-reassignment -->
+  <g stroke="#999" stroke-width="1.5" fill="none">
+    <path d="M 480 245 C 480 380, 480 410, 510 432" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- Caption -->
+  <text x="400" y="510" text-anchor="middle" font-size="12" fill="#666" font-style="italic">
+    Three platforms become one report. Unresolved tickets auto-reassign to the next on-call — no manual list to maintain.
+  </text>
+
+  <!-- Arrow definition -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#999"/>
+    </marker>
+  </defs>
+</svg>

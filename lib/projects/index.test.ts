@@ -8,40 +8,59 @@ import {
   getProjectsForCompany,
 } from './index';
 
-const ALL_SLUGS = [
-  aiRecipeSearch.slug,
-  locationRouting.slug,
-  oncallAutomation.slug,
-  vlpDynamicBottomNavBar.slug,
+const ALL_PROJECTS_EN = [
+  aiRecipeSearch.en,
+  locationRouting.en,
+  oncallAutomation.en,
+  vlpDynamicBottomNavBar.en,
+];
+
+const ALL_PROJECTS_KO = [
+  aiRecipeSearch.ko,
+  locationRouting.ko,
+  oncallAutomation.ko,
+  vlpDynamicBottomNavBar.ko,
 ];
 
 describe('getProjectsForCompany', () => {
-  test('returns all projects when no company', () => {
-    const slugs = getProjectsForCompany().map((p) => p.slug);
-    expect(slugs).toEqual(ALL_SLUGS);
+  test('returns all projects in the requested language when no company', () => {
+    expect(
+      getProjectsForCompany({ company: undefined, language: 'en' }),
+    ).toEqual(ALL_PROJECTS_EN);
+    expect(
+      getProjectsForCompany({ company: undefined, language: 'ko' }),
+    ).toEqual(ALL_PROJECTS_KO);
   });
 
-  test('returns filtered projects for registered company', () => {
-    const slugs = getProjectsForCompany('fieldguide').map((p) => p.slug);
-    expect(slugs).toEqual([
-      aiRecipeSearch.slug,
-      oncallAutomation.slug,
-      locationRouting.slug,
-    ]);
+  test('returns filtered projects in the requested language for registered company', () => {
+    expect(
+      getProjectsForCompany({ company: 'fieldguide', language: 'en' }),
+    ).toEqual([aiRecipeSearch.en, oncallAutomation.en, locationRouting.en]);
+    expect(
+      getProjectsForCompany({ company: 'fieldguide', language: 'ko' }),
+    ).toEqual([aiRecipeSearch.ko, oncallAutomation.ko, locationRouting.ko]);
   });
 
   test('returns all projects for unknown company', () => {
-    const slugs = getProjectsForCompany('unknown').map((p) => p.slug);
-    expect(slugs).toEqual(ALL_SLUGS);
+    expect(
+      getProjectsForCompany({ company: 'unknown', language: 'en' }),
+    ).toEqual(ALL_PROJECTS_EN);
   });
 });
 
 describe('getProjectBySlug', () => {
-  test('returns correct project for valid slug', () => {
-    expect(getProjectBySlug(aiRecipeSearch.slug)).toBe(aiRecipeSearch);
+  test('returns project in the requested language', () => {
+    expect(
+      getProjectBySlug({ slug: aiRecipeSearch.en.slug, language: 'en' }),
+    ).toBe(aiRecipeSearch.en);
+    expect(
+      getProjectBySlug({ slug: aiRecipeSearch.ko.slug, language: 'ko' }),
+    ).toBe(aiRecipeSearch.ko);
   });
 
   test('returns undefined for unknown slug', () => {
-    expect(getProjectBySlug('nonexistent')).toBeUndefined();
+    expect(
+      getProjectBySlug({ slug: 'nonexistent', language: 'en' }),
+    ).toBeUndefined();
   });
 });

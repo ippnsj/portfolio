@@ -1,10 +1,10 @@
-import type { Project } from './index';
+import type { Project } from '../types';
+import { aiRecipeSearchShared } from './shared';
 
-export const aiRecipeSearch: Project = {
-  slug: 'ai-recipe-search',
+export const aiRecipeSearchEn: Project = {
+  ...aiRecipeSearchShared,
   title: 'AI-Powered Recipe + Bulk Ingredient Search PoC',
   period: 'October 2025',
-  stack: ['Flutter', 'n8n', 'LLM', 'Google Custom Search API'],
   role: 'UX gap identification, design, implementation, internal demo',
   summary:
     'A self-initiated PoC that unifies a fragmented user flow — switching between external recipe apps and the grocery app to look up ingredients one by one — into a single in-app flow: recipe search → automatic ingredient extraction → multi-search entry.',
@@ -20,7 +20,7 @@ export const aiRecipeSearch: Project = {
     media: [
       {
         type: 'image',
-        src: '/projects/ai-recipe-search/before-after-flow.svg',
+        src: '/projects/ai-recipe-search/en/before-after-flow.svg',
         alt: 'Before and after flow comparison: fragmented multi-app workflow vs single in-app flow',
       },
     ],
@@ -35,7 +35,7 @@ export const aiRecipeSearch: Project = {
       media: [
         {
           type: 'image',
-          src: '/projects/ai-recipe-search/architecture.svg',
+          src: '/projects/ai-recipe-search/en/architecture.svg',
           alt: 'Architecture diagram: n8n orchestrates LLM for recipe data and Google Search for images',
         },
       ],
@@ -49,7 +49,7 @@ export const aiRecipeSearch: Project = {
       media: [
         {
           type: 'image',
-          src: '/projects/ai-recipe-search/auto-cart-vs-multi-search.svg',
+          src: '/projects/ai-recipe-search/en/auto-cart-vs-multi-search.svg',
           alt: 'Comparison of auto-cart vs multi-search entry: multi-search preserves user control',
         },
       ],
@@ -62,11 +62,11 @@ export const aiRecipeSearch: Project = {
       'Benefits demonstrated: single in-app flow with no dependency on external apps; user focuses on product selection instead of repetitive ingredient lookups.',
     ],
     media: [
-        {
-          type: 'video',
-          src: '/projects/ai-recipe-search/demo.mp4',
-          alt: 'Demo: recipe search to ingredient extraction to multi-search entry flow',
-        },
-      ],
+      {
+        type: 'video',
+        src: '/projects/ai-recipe-search/demo.mp4',
+        alt: 'Demo: recipe search to ingredient extraction to multi-search entry flow',
+      },
+    ],
   },
 };

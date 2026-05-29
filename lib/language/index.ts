@@ -1,15 +1,18 @@
 import { cookies } from 'next/headers';
 import { getCompanyConfig } from '@/lib/companies';
+import {
+  DEFAULT_LANGUAGE,
+  isLanguage,
+  type Language,
+  LANGUAGE_COOKIE,
+} from './types';
 
-export const LANGUAGES = ['en', 'ko'] as const;
-export type Language = (typeof LANGUAGES)[number];
-
-export const DEFAULT_LANGUAGE: Language = 'en';
-export const LANGUAGE_COOKIE = 'language';
-
-function isLanguage(value: string | undefined): value is Language {
-  return (LANGUAGES as readonly string[]).includes(value ?? '');
-}
+export {
+  DEFAULT_LANGUAGE,
+  type Language,
+  LANGUAGE_COOKIE,
+  LANGUAGES,
+} from './types';
 
 export async function getCurrentLanguage(company?: string): Promise<Language> {
   const cookieStore = await cookies();

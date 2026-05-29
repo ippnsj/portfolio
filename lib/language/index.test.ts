@@ -6,7 +6,7 @@ vi.mock('next/headers', () => ({
   cookies: () => Promise.resolve(cookieStore),
 }));
 
-import { DEFAULT_LANGUAGE, getCurrentLanguage } from './language';
+import { DEFAULT_LANGUAGE, getCurrentLanguage } from './index';
 
 describe('getCurrentLanguage', () => {
   beforeEach(() => {
