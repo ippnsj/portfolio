@@ -1,6 +1,9 @@
+import type { Language } from '@/lib/language';
+
 interface CompanyConfig {
   color: string;
   projectSlugs: string[];
+  language: Language;
 }
 
 const COMPANY_MAP = new Map<string, CompanyConfig>([
@@ -9,6 +12,7 @@ const COMPANY_MAP = new Map<string, CompanyConfig>([
     {
       color: '#2EB85A',
       projectSlugs: ['ai-recipe-search', 'oncall-automation', 'location-routing'],
+      language: 'en',
     },
   ],
 ]);
