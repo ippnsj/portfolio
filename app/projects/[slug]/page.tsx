@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { notFound } from 'next/navigation';
+import ReactMarkdown from 'react-markdown';
 import { Tag } from '@/components/Tag';
 import { parseBrandParams, resolveBrandColor } from '@/lib/brand';
 import type { Media, Project } from '@/lib/projects';
@@ -52,9 +53,9 @@ function SubSection({ title, children }: { title: string; children: ReactNode })
 
 function Paragraphs({ items }: { items: string[] }) {
   return (
-    <div className="space-y-4 text-lg leading-relaxed text-muted">
+    <div className="space-y-4 text-lg leading-relaxed text-muted [&_code]:rounded [&_code]:bg-gray-100 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-base [&_code]:text-foreground [&_strong]:font-semibold [&_strong]:text-foreground">
       {items.map((text, i) => (
-        <p key={i}>{text}</p>
+        <ReactMarkdown key={i}>{text}</ReactMarkdown>
       ))}
     </div>
   );

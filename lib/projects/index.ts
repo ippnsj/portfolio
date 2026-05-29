@@ -2,6 +2,7 @@ import { getCompanyConfig } from '@/lib/companies';
 import { aiRecipeSearch } from './ai-recipe-search';
 import { locationRouting } from './location-routing';
 import { oncallAutomation } from './oncall-automation';
+import { vlpDynamicBottomNavBar } from './vlp-bottom-nav-bar';
 
 export interface Media {
   type: 'image' | 'video';
@@ -38,6 +39,7 @@ const PROJECTS: Project[] = [
   aiRecipeSearch,
   locationRouting,
   oncallAutomation,
+  vlpDynamicBottomNavBar,
 ];
 
 const PROJECT_MAP = new Map<string, Project>(

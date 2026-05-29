@@ -2,6 +2,7 @@ import { describe, expect, test } from 'vitest';
 import { aiRecipeSearch } from './ai-recipe-search';
 import { locationRouting } from './location-routing';
 import { oncallAutomation } from './oncall-automation';
+import { vlpDynamicBottomNavBar } from './vlp-bottom-nav-bar';
 import {
   getProjectBySlug,
   getProjectsForCompany,
@@ -11,6 +12,7 @@ const ALL_SLUGS = [
   aiRecipeSearch.slug,
   locationRouting.slug,
   oncallAutomation.slug,
+  vlpDynamicBottomNavBar.slug,
 ];
 
 describe('getProjectsForCompany', () => {

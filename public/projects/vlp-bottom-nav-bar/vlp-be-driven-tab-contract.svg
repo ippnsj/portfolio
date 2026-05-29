@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 510" font-family="system-ui, -apple-system, sans-serif">
+  <!-- Background -->
+  <rect width="900" height="510" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1a1a" letter-spacing="1">BE-DRIVEN TAB CONTRACT</text>
+
+  <!-- BE source box -->
+  <rect x="290" y="65" width="320" height="70" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+  <text x="450" y="88" text-anchor="middle" font-size="10" font-weight="700" fill="#999" letter-spacing="1.5">BE RESPONSE</text>
+  <line x1="310" y1="97" x2="590" y2="97" stroke="#E5E5E5" stroke-width="1"/>
+  <text x="450" y="120" text-anchor="middle" font-size="12" fill="#1a1a1a">Each tab declares its content type</text>
+
+  <!-- Branch arrows -->
+  <line x1="450" y1="135" x2="450" y2="160" stroke="#999" stroke-width="1.5"/>
+  <line x1="240" y1="160" x2="660" y2="160" stroke="#999" stroke-width="1.5"/>
+  <path d="M 240 160 L 240 190" stroke="#999" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 660 160 L 660 190" stroke="#999" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- ============ LEFT BOX: embedded_widget ============ -->
+  <rect x="90" y="195" width="300" height="240" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+  <text x="110" y="220" font-size="10" font-weight="700" fill="#999" letter-spacing="1.5">TYPE</text>
+  <text x="240" y="220" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-monospace, 'SF Mono', Menlo, monospace" fill="#1a1a1a">embedded_widget</text>
+  <line x1="110" y1="231" x2="370" y2="231" stroke="#E5E5E5" stroke-width="1"/>
+
+  <text x="240" y="257" text-anchor="middle" font-size="11.5" fill="#1a1a1a">Widgets without (or not needing)</text>
+  <text x="240" y="273" text-anchor="middle" font-size="11.5" fill="#1a1a1a">their own route</text>
+
+  <text x="240" y="300" text-anchor="middle" font-size="11" fill="#666" font-style="italic">e.g., category list widget</text>
+
+  <text x="110" y="333" font-size="11" font-weight="700" fill="#1a1a1a">FE owns:</text>
+  <text x="110" y="350" font-size="11" font-family="ui-monospace, 'SF Mono', Menlo, monospace" fill="#1a1a1a">widget_type → Widget mapping</text>
+  <text x="110" y="368" font-size="10" font-style="italic" fill="#666">(widget_type sent by BE)</text>
+
+  <text x="110" y="405" font-size="11.5" fill="#1a1a1a">⚠  New type =</text>
+  <text x="110" y="421" font-size="11.5" fill="#1a1a1a">    new mapping + FE release</text>
+
+  <!-- ============ RIGHT BOX: route ============ -->
+  <rect x="510" y="195" width="300" height="240" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+  <text x="530" y="220" font-size="10" font-weight="700" fill="#999" letter-spacing="1.5">TYPE</text>
+  <text x="660" y="220" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-monospace, 'SF Mono', Menlo, monospace" fill="#1a1a1a">route</text>
+  <line x1="530" y1="231" x2="790" y2="231" stroke="#E5E5E5" stroke-width="1"/>
+
+  <text x="660" y="257" text-anchor="middle" font-size="11.5" fill="#1a1a1a">Content already reachable</text>
+  <text x="660" y="273" text-anchor="middle" font-size="11.5" fill="#1a1a1a">via an existing route</text>
+
+  <text x="660" y="300" text-anchor="middle" font-size="11" fill="#666" font-style="italic">e.g., category PLP</text>
+
+  <text x="530" y="333" font-size="11" font-weight="700" fill="#1a1a1a">FE:</text>
+  <text x="530" y="350" font-size="11" fill="#1a1a1a">nothing new</text>
+
+  <text x="530" y="405" font-size="11.5" fill="#1a1a1a">✓  BE wires any existing</text>
+  <text x="530" y="421" font-size="11.5" fill="#1a1a1a">    route — no FE release</text>
+
+  <!-- Italic caption -->
+  <text x="450" y="475" text-anchor="middle" font-size="12" fill="#666" font-style="italic">Either an existing widget or an existing route can become a tab. Only route avoids an FE release.</text>
+
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#999"/>
+    </marker>
+  </defs>
+</svg>
