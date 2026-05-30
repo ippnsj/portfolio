@@ -1,14 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 580" font-family="system-ui, -apple-system, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 580" font-family="'Noto Sans CJK KR', 'Noto Sans KR', system-ui, -apple-system, sans-serif">
   <!-- Background -->
   <rect width="800" height="580" fill="#FAFAFA"/>
 
   <!-- Title -->
-  <text x="400" y="40" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1a1a" letter-spacing="1">LOCATION VALIDATION FLOW</text>
+  <text x="400" y="40" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1a1a" letter-spacing="1">위치 검증 플로우</text>
 
   <!-- Start -->
   <g>
     <rect x="350" y="65" width="100" height="36" rx="18" fill="#1a1a1a"/>
-    <text x="400" y="88" text-anchor="middle" font-size="12" font-weight="600" fill="#FFFFFF">Start</text>
+    <text x="400" y="88" text-anchor="middle" font-size="12" font-weight="600" fill="#FFFFFF">시작</text>
   </g>
 
   <!-- Arrow down -->
@@ -17,8 +17,8 @@
   <!-- Decision 1: country valid? -->
   <g>
     <polygon points="400,130 510,170 400,210 290,170" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="1.5"/>
-    <text x="400" y="166" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">Country</text>
-    <text x="400" y="183" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">valid?</text>
+    <text x="400" y="166" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">Country 값이</text>
+    <text x="400" y="183" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">유효한가?</text>
   </g>
 
   <!-- No → Country selector -->
@@ -29,19 +29,18 @@
 
   <g>
     <rect x="40" y="150" width="135" height="40" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
-    <text x="107" y="175" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a1a">Country selector</text>
+    <text x="107" y="175" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a1a">국가 선택 화면</text>
   </g>
 
-  <!-- Yes → -->
+  <!-- Yes ↓ -->
   <line x1="400" y1="210" x2="400" y2="235" stroke="#999" stroke-width="1.5" marker-end="url(#arrow)"/>
   <text x="415" y="225" font-size="11" fill="#666">Yes</text>
 
   <!-- Decision 2: mode == country only? -->
   <g>
     <polygon points="400,240 530,290 400,340 270,290" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="1.5"/>
-    <text x="400" y="282" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">mode</text>
-    <text x="400" y="298" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">==</text>
-    <text x="400" y="314" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">country only?</text>
+    <text x="400" y="287" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">mode가</text>
+    <text x="400" y="304" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">country인가?</text>
   </g>
 
   <!-- Yes → Original page (right) -->
@@ -52,18 +51,18 @@
 
   <g>
     <rect x="625" y="270" width="135" height="40" rx="8" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="2"/>
-    <text x="693" y="295" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a1a">Original page</text>
+    <text x="693" y="295" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a1a">원래 페이지</text>
   </g>
 
-  <!-- No → -->
+  <!-- No ↓ -->
   <line x1="400" y1="340" x2="400" y2="365" stroke="#999" stroke-width="1.5" marker-end="url(#arrow)"/>
   <text x="415" y="355" font-size="11" fill="#666">No</text>
 
   <!-- Decision 3: area valid? -->
   <g>
     <polygon points="400,370 510,410 400,450 290,410" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="1.5"/>
-    <text x="400" y="406" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">Area</text>
-    <text x="400" y="423" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">valid?</text>
+    <text x="400" y="406" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">Area 값이</text>
+    <text x="400" y="423" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">유효한가?</text>
   </g>
 
   <!-- Yes → Original page (left, loop back) -->
@@ -72,15 +71,15 @@
   </g>
   <text x="565" y="400" text-anchor="middle" font-size="11" fill="#666">Yes</text>
 
-  <!-- No → -->
+  <!-- No ↓ -->
   <line x1="400" y1="450" x2="400" y2="475" stroke="#999" stroke-width="1.5" marker-end="url(#arrow)"/>
   <text x="415" y="465" font-size="11" fill="#666">No</text>
 
   <!-- Decision 4: has saved addresses? -->
   <g>
     <polygon points="400,480 540,520 400,560 260,520" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="1.5"/>
-    <text x="400" y="517" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">Has saved</text>
-    <text x="400" y="533" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">addresses?</text>
+    <text x="400" y="517" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">저장된 주소 리스트가</text>
+    <text x="400" y="533" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">있는가?</text>
   </g>
 
   <!-- No → Map screen (left) -->
@@ -91,7 +90,7 @@
 
   <g>
     <rect x="40" y="500" width="135" height="40" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
-    <text x="107" y="525" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a1a">Map screen</text>
+    <text x="107" y="525" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a1a">지도 화면</text>
   </g>
 
   <!-- Yes → Address list (right) -->
@@ -102,7 +101,7 @@
 
   <g>
     <rect x="625" y="500" width="135" height="40" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
-    <text x="693" y="525" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a1a">Address list</text>
+    <text x="693" y="525" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a1a">주소 선택 화면</text>
   </g>
 
   <!-- Arrow definition -->

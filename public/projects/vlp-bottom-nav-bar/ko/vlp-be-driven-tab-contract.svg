@@ -1,15 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 510" font-family="system-ui, -apple-system, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 510" font-family="'Noto Sans CJK KR', 'Noto Sans KR', system-ui, -apple-system, sans-serif">
   <!-- Background -->
   <rect width="900" height="510" fill="#FAFAFA"/>
 
   <!-- Title -->
-  <text x="450" y="38" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1a1a" letter-spacing="1">BE-DRIVEN TAB CONTRACT</text>
+  <text x="450" y="38" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1a1a" letter-spacing="1">서버 주도 동적 탭 구성</text>
 
   <!-- BE source box -->
   <rect x="290" y="65" width="320" height="70" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
-  <text x="450" y="88" text-anchor="middle" font-size="10" font-weight="700" fill="#999" letter-spacing="1.5">BE RESPONSE</text>
+  <text x="450" y="88" text-anchor="middle" font-size="10" font-weight="700" fill="#999" letter-spacing="1.5">BE 응답</text>
   <line x1="310" y1="97" x2="590" y2="97" stroke="#E5E5E5" stroke-width="1"/>
-  <text x="450" y="120" text-anchor="middle" font-size="12" fill="#1a1a1a">Each tab declares its content type</text>
+  <text x="450" y="120" text-anchor="middle" font-size="12" fill="#1a1a1a">각 탭이 자신의 콘텐츠 타입을 선언</text>
 
   <!-- Branch arrows -->
   <line x1="450" y1="135" x2="450" y2="160" stroke="#999" stroke-width="1.5"/>
@@ -23,17 +23,17 @@
   <text x="240" y="220" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-monospace, 'SF Mono', Menlo, monospace" fill="#1a1a1a">embedded_widget</text>
   <line x1="110" y1="231" x2="370" y2="231" stroke="#E5E5E5" stroke-width="1"/>
 
-  <text x="240" y="257" text-anchor="middle" font-size="11.5" fill="#1a1a1a">Widgets without (or not needing)</text>
-  <text x="240" y="273" text-anchor="middle" font-size="11.5" fill="#1a1a1a">their own route</text>
+  <text x="240" y="257" text-anchor="middle" font-size="11.5" fill="#1a1a1a">자체 라우트가 없거나</text>
+  <text x="240" y="273" text-anchor="middle" font-size="11.5" fill="#1a1a1a">필요 없는 위젯</text>
 
-  <text x="240" y="300" text-anchor="middle" font-size="11" fill="#666" font-style="italic">e.g., category list widget</text>
+  <text x="240" y="300" text-anchor="middle" font-size="11" fill="#666" font-style="italic">예: 카테고리 리스트 위젯</text>
 
-  <text x="110" y="333" font-size="11" font-weight="700" fill="#1a1a1a">FE owns:</text>
-  <text x="110" y="350" font-size="11" font-family="ui-monospace, 'SF Mono', Menlo, monospace" fill="#1a1a1a">widget_type → Widget mapping</text>
-  <text x="110" y="368" font-size="10" font-style="italic" fill="#666">(widget_type sent by BE)</text>
+  <text x="110" y="333" font-size="11" font-weight="700" fill="#1a1a1a">FE 담당:</text>
+  <text x="110" y="350" font-size="11" fill="#1a1a1a"><tspan font-family="ui-monospace, 'SF Mono', Menlo, monospace">widget_type → Widget</tspan> 매핑</text>
+  <text x="110" y="368" font-size="10" font-style="italic" fill="#666">(widget_type은 BE가 전달)</text>
 
-  <text x="110" y="405" font-size="11.5" fill="#1a1a1a">⚠  New type =</text>
-  <text x="110" y="421" font-size="11.5" fill="#1a1a1a">    new mapping + FE release</text>
+  <text x="110" y="405" font-size="11.5" fill="#1a1a1a">⚠  새 타입 =</text>
+  <text x="110" y="421" font-size="11.5" fill="#1a1a1a">    새 매핑 + FE 릴리즈 필요</text>
 
   <!-- ============ RIGHT BOX: route ============ -->
   <rect x="510" y="195" width="300" height="240" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
@@ -41,19 +41,19 @@
   <text x="660" y="220" text-anchor="middle" font-size="13" font-weight="700" font-family="ui-monospace, 'SF Mono', Menlo, monospace" fill="#1a1a1a">route</text>
   <line x1="530" y1="231" x2="790" y2="231" stroke="#E5E5E5" stroke-width="1"/>
 
-  <text x="660" y="257" text-anchor="middle" font-size="11.5" fill="#1a1a1a">Content already reachable</text>
-  <text x="660" y="273" text-anchor="middle" font-size="11.5" fill="#1a1a1a">via an existing route</text>
+  <text x="660" y="257" text-anchor="middle" font-size="11.5" fill="#1a1a1a">이미 존재하는 라우트로</text>
+  <text x="660" y="273" text-anchor="middle" font-size="11.5" fill="#1a1a1a">접근 가능한 콘텐츠</text>
 
-  <text x="660" y="300" text-anchor="middle" font-size="11" fill="#666" font-style="italic">e.g., category PLP</text>
+  <text x="660" y="300" text-anchor="middle" font-size="11" fill="#666" font-style="italic">예: 카테고리 PLP</text>
 
   <text x="530" y="333" font-size="11" font-weight="700" fill="#1a1a1a">FE:</text>
-  <text x="530" y="350" font-size="11" fill="#1a1a1a">nothing new</text>
+  <text x="530" y="350" font-size="11" fill="#1a1a1a">추가 작업 없음</text>
 
-  <text x="530" y="405" font-size="11.5" fill="#1a1a1a">✓  BE wires any existing</text>
-  <text x="530" y="421" font-size="11.5" fill="#1a1a1a">    route — no FE release</text>
+  <text x="530" y="405" font-size="11.5" fill="#1a1a1a">✓  BE가 기존 라우트의 deeplink만</text>
+  <text x="530" y="421" font-size="11.5" fill="#1a1a1a">    내려주면 바로 탭 노출 — FE 릴리즈 불필요</text>
 
   <!-- Italic caption -->
-  <text x="450" y="475" text-anchor="middle" font-size="12" fill="#666" font-style="italic">Either an existing widget or an existing route can become a tab. Only route avoids an FE release.</text>
+  <text x="450" y="475" text-anchor="middle" font-size="12" fill="#666" font-style="italic">기존 위젯이든 기존 라우트든 탭으로 만들 수 있음. 다만 route 타입만 FE 릴리즈 없이 가능.</text>
 
   <!-- Arrow marker -->
   <defs>

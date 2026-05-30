@@ -1,15 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" font-family="system-ui, -apple-system, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" font-family="'Noto Sans CJK KR', 'Noto Sans KR', system-ui, -apple-system, sans-serif">
   <!-- Background -->
   <rect width="800" height="400" fill="#FAFAFA"/>
 
   <!-- User Input box -->
   <g>
     <rect x="40" y="170" width="130" height="60" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
-    <text x="105" y="195" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1a1a">User Input</text>
-    <text x="105" y="215" text-anchor="middle" font-size="11" fill="#666">"dak-galbi"</text>
+    <text x="105" y="195" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1a1a">사용자 입력</text>
+    <text x="105" y="215" text-anchor="middle" font-size="11" fill="#666">"닭갈비"</text>
   </g>
 
-  <!-- Arrow 1: User → n8n -->
   <g stroke="#999" stroke-width="1.5" fill="none">
     <path d="M 170 200 L 230 200" marker-end="url(#arrow)"/>
   </g>
@@ -17,18 +16,16 @@
   <!-- n8n Workflow box -->
   <g>
     <rect x="230" y="150" width="170" height="100" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
-    <text x="315" y="180" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1a1a">n8n Workflow</text>
+    <text x="315" y="180" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1a1a">n8n 워크플로우</text>
     <line x1="250" y1="195" x2="380" y2="195" stroke="#E5E5E5" stroke-width="1"/>
-    <text x="315" y="218" text-anchor="middle" font-size="11" fill="#666">Orchestrate</text>
-    <text x="315" y="234" text-anchor="middle" font-size="11" fill="#666">parallel calls</text>
+    <text x="315" y="218" text-anchor="middle" font-size="11" fill="#666">여러 API 호출을</text>
+    <text x="315" y="234" text-anchor="middle" font-size="11" fill="#666">자동화</text>
   </g>
 
-  <!-- Arrow 2a: n8n → LLM (top) -->
   <g stroke="#999" stroke-width="1.5" fill="none">
     <path d="M 400 175 L 460 130" marker-end="url(#arrow)"/>
   </g>
 
-  <!-- Arrow 2b: n8n → Google (bottom) -->
   <g stroke="#999" stroke-width="1.5" fill="none">
     <path d="M 400 225 L 460 270" marker-end="url(#arrow)"/>
   </g>
@@ -37,24 +34,22 @@
   <g>
     <rect x="460" y="90" width="180" height="80" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
     <text x="550" y="115" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1a1a">LLM</text>
-    <text x="550" y="135" text-anchor="middle" font-size="11" fill="#666">Structured JSON:</text>
-    <text x="550" y="151" text-anchor="middle" font-size="11" fill="#666">ingredients + steps</text>
+    <text x="550" y="135" text-anchor="middle" font-size="11" fill="#666">재료·조리법</text>
+    <text x="550" y="151" text-anchor="middle" font-size="11" fill="#666">JSON 출력</text>
   </g>
 
   <!-- Google Custom Search box (bottom) -->
   <g>
     <rect x="460" y="230" width="180" height="80" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
     <text x="550" y="255" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1a1a">Google Custom Search</text>
-    <text x="550" y="275" text-anchor="middle" font-size="11" fill="#666">Recipe image</text>
-    <text x="550" y="291" text-anchor="middle" font-size="11" fill="#999">(not LLM → cost/latency)</text>
+    <text x="550" y="275" text-anchor="middle" font-size="11" fill="#666">레시피 이미지</text>
+    <text x="550" y="291" text-anchor="middle" font-size="11" fill="#999">(LLM보다 저렴하고 빠름)</text>
   </g>
 
-  <!-- Arrow 3a: LLM → result -->
   <g stroke="#999" stroke-width="1.5" fill="none">
     <path d="M 640 130 L 700 175" marker-end="url(#arrow)"/>
   </g>
 
-  <!-- Arrow 3b: Google → result -->
   <g stroke="#999" stroke-width="1.5" fill="none">
     <path d="M 640 270 L 700 225" marker-end="url(#arrow)"/>
   </g>
@@ -62,12 +57,10 @@
   <!-- Combined Result box -->
   <g>
     <rect x="700" y="170" width="80" height="60" rx="8" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
-    <text x="740" y="195" text-anchor="middle" font-size="11" font-weight="600" fill="#FFFFFF">Combined</text>
-    <text x="740" y="210" text-anchor="middle" font-size="11" font-weight="600" fill="#FFFFFF">Result</text>
-    <text x="740" y="222" text-anchor="middle" font-size="9" fill="#CCC">image + recipe</text>
+    <text x="740" y="195" text-anchor="middle" font-size="11" font-weight="600" fill="#FFFFFF">통합 결과</text>
+    <text x="740" y="215" text-anchor="middle" font-size="9" fill="#CCC">이미지 + 레시피</text>
   </g>
 
-  <!-- Arrow definition -->
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#999"/>
@@ -76,6 +69,6 @@
 
   <!-- Caption -->
   <text x="400" y="370" text-anchor="middle" font-size="12" fill="#666" font-style="italic">
-    Cost-efficient design: route each task to the right tool → LLM for structured text, image search for visuals
+    비용 절감을 위해 작업마다 다른 도구 활용 — 텍스트는 LLM이, 이미지는 검색 API가 담당
   </text>
 </svg>

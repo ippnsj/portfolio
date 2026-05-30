@@ -21,13 +21,13 @@ export const locationRoutingEn: Project = {
     media: [
       {
         type: 'image',
-        src: '/projects/location-routing/en/deeplink-error-top-three.png',
+        src: '/projects/location-routing/deeplink-error-top-three.png',
         alt: 'Top three deep-link error categories with missing-location errors highlighted',
         caption: 'Top 3 Deeplink Errors',
       },
       {
         type: 'image',
-        src: '/projects/location-routing/en/location-missing-deeplink-errors.png',
+        src: '/projects/location-routing/location-missing-deeplink-errors.png',
         alt: 'Sub-causes of missing-location errors: country null and area null',
         caption: 'Deeplink Errors Related to Missing Location Cases',
       },
@@ -71,7 +71,7 @@ export const locationRoutingEn: Project = {
       },
       {
         type: 'image',
-        src: '/projects/location-routing/en/result.png',
+        src: '/projects/location-routing/result.png',
         alt: 'Error count graph showing drop from ~20,000 to near zero over one month',
         caption: 'Missing-location errors dropped to near zero after adoption',
       },

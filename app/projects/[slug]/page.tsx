@@ -192,10 +192,14 @@ export default async function ProjectPage({
 
       <Section title={translations.detail.result}>
         {project.result.media && <MediaList items={project.result.media} />}
-        <ul className="space-y-3 text-lg leading-relaxed text-muted">
+        <ul className="space-y-3 text-lg leading-relaxed text-muted [&_code]:rounded [&_code]:bg-gray-100 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-base [&_code]:text-foreground [&_strong]:font-semibold [&_strong]:text-foreground">
           {project.result.content.map((item, i) => (
             <li key={i} className="border-l-2 border-brand pl-4">
-              {item}
+              <ReactMarkdown
+                components={{ p: ({ children }) => <>{children}</> }}
+              >
+                {item}
+              </ReactMarkdown>
             </li>
           ))}
         </ul>

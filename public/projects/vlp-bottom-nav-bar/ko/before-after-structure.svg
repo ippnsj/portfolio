@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" font-family="system-ui, -apple-system, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" font-family="'Noto Sans CJK KR', 'Noto Sans KR', system-ui, -apple-system, sans-serif">
   <rect width="900" height="620" fill="#FAFAFA"/>
 
-  <text x="450" y="38" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1a1a" letter-spacing="1">VLP STRUCTURE: BEFORE &amp; AFTER</text>
+  <text x="450" y="38" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1a1a" letter-spacing="1">VLP 구조: BEFORE &amp; AFTER</text>
 
   <!-- BEFORE -->
   <text x="225" y="75" text-anchor="middle" font-size="11" font-weight="700" fill="#999" letter-spacing="1.5">BEFORE</text>
@@ -11,25 +11,25 @@
   <text x="225" y="155" text-anchor="middle" font-size="11" fill="#666">Hero Banner</text>
 
   <rect x="125" y="200" width="200" height="55" rx="4" fill="#F0F0F0" stroke="#E5E5E5" stroke-width="1"/>
-  <text x="225" y="232" text-anchor="middle" font-size="11" fill="#666">Recommendations</text>
+  <text x="225" y="232" text-anchor="middle" font-size="11" fill="#666">추천</text>
 
   <rect x="125" y="265" width="200" height="55" rx="4" fill="#F0F0F0" stroke="#E5E5E5" stroke-width="1"/>
-  <text x="225" y="297" text-anchor="middle" font-size="11" fill="#666">Deals</text>
+  <text x="225" y="297" text-anchor="middle" font-size="11" fill="#666">할인 상품</text>
 
   <line x1="105" y1="340" x2="345" y2="340" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4 3"/>
-  <text x="115" y="335" font-size="9" fill="#1a1a1a" font-weight="700" letter-spacing="1">FOLD</text>
-  <text x="335" y="335" text-anchor="end" font-size="9" fill="#666" font-style="italic">scroll needed below</text>
+  <text x="115" y="335" font-size="10" fill="#1a1a1a" font-weight="700">첫 화면 끝</text>
+  <text x="335" y="335" text-anchor="end" font-size="9" fill="#666" font-style="italic">스크롤 필요</text>
 
   <rect x="125" y="355" width="200" height="40" rx="4" fill="#F8F8F8" stroke="#EEEEEE" stroke-width="1"/>
-  <text x="225" y="380" text-anchor="middle" font-size="10" fill="#BBBBBB">...more content...</text>
+  <text x="225" y="380" text-anchor="middle" font-size="10" fill="#BBBBBB">...추가 콘텐츠...</text>
 
   <rect x="125" y="405" width="200" height="40" rx="4" fill="#F8F8F8" stroke="#EEEEEE" stroke-width="1"/>
-  <text x="225" y="430" text-anchor="middle" font-size="10" fill="#BBBBBB">...more content...</text>
+  <text x="225" y="430" text-anchor="middle" font-size="10" fill="#BBBBBB">...추가 콘텐츠...</text>
 
   <rect x="125" y="460" width="200" height="80" rx="4" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="2"/>
-  <text x="225" y="485" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a1a">Category List</text>
-  <text x="225" y="502" text-anchor="middle" font-size="10" fill="#666" font-style="italic">entry to Category PLPs</text>
-  <text x="225" y="517" text-anchor="middle" font-size="10" fill="#666" font-style="italic">(42.80% of all ATC)</text>
+  <text x="225" y="485" text-anchor="middle" font-size="11" font-weight="700" fill="#1a1a1a">카테고리 리스트</text>
+  <text x="225" y="502" text-anchor="middle" font-size="10" fill="#666" font-style="italic">카테고리 PLP 진입점</text>
+  <text x="225" y="517" text-anchor="middle" font-size="10" fill="#666" font-style="italic">(전체 ATC의 42.80%)</text>
 
   <!-- AFTER -->
   <text x="675" y="75" text-anchor="middle" font-size="11" font-weight="700" fill="#999" letter-spacing="1.5">AFTER</text>
@@ -39,35 +39,35 @@
   <text x="675" y="155" text-anchor="middle" font-size="11" fill="#666">Hero Banner</text>
 
   <rect x="575" y="200" width="200" height="55" rx="4" fill="#F0F0F0" stroke="#E5E5E5" stroke-width="1"/>
-  <text x="675" y="232" text-anchor="middle" font-size="11" fill="#666">Recommendations</text>
+  <text x="675" y="232" text-anchor="middle" font-size="11" fill="#666">추천</text>
 
   <rect x="575" y="265" width="200" height="55" rx="4" fill="#F0F0F0" stroke="#E5E5E5" stroke-width="1"/>
-  <text x="675" y="297" text-anchor="middle" font-size="11" fill="#666">Deals</text>
+  <text x="675" y="297" text-anchor="middle" font-size="11" fill="#666">할인 상품</text>
 
   <line x1="555" y1="340" x2="795" y2="340" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4 3"/>
-  <text x="565" y="335" font-size="9" fill="#1a1a1a" font-weight="700" letter-spacing="1">FOLD</text>
-  <text x="785" y="335" text-anchor="end" font-size="9" fill="#666" font-style="italic">scroll needed below</text>
+  <text x="565" y="335" font-size="10" fill="#1a1a1a" font-weight="700">첫 화면 끝</text>
+  <text x="785" y="335" text-anchor="end" font-size="9" fill="#666" font-style="italic">스크롤 필요</text>
 
   <rect x="575" y="355" width="200" height="40" rx="4" fill="#F8F8F8" stroke="#EEEEEE" stroke-width="1"/>
-  <text x="675" y="380" text-anchor="middle" font-size="10" fill="#BBBBBB">...more content...</text>
+  <text x="675" y="380" text-anchor="middle" font-size="10" fill="#BBBBBB">...추가 콘텐츠...</text>
 
   <rect x="575" y="405" width="200" height="40" rx="4" fill="#F8F8F8" stroke="#EEEEEE" stroke-width="1"/>
-  <text x="675" y="430" text-anchor="middle" font-size="10" fill="#BBBBBB">...more content...</text>
+  <text x="675" y="430" text-anchor="middle" font-size="10" fill="#BBBBBB">...추가 콘텐츠...</text>
 
   <rect x="575" y="455" width="200" height="40" rx="4" fill="#F8F8F8" stroke="#EEEEEE" stroke-width="1"/>
-  <text x="675" y="480" text-anchor="middle" font-size="10" fill="#BBBBBB">...more content...</text>
+  <text x="675" y="480" text-anchor="middle" font-size="10" fill="#BBBBBB">...추가 콘텐츠...</text>
 
   <line x1="555" y1="510" x2="795" y2="510" stroke="#1a1a1a" stroke-width="0.8"/>
 
-  <text x="675" y="525" text-anchor="middle" font-size="9" font-weight="700" fill="#1a1a1a" letter-spacing="1">FIXED — ALWAYS VISIBLE</text>
+  <text x="675" y="525" text-anchor="middle" font-size="9" font-weight="700" fill="#1a1a1a" letter-spacing="1">고정 — 항상 표시</text>
 
   <rect x="555" y="530" width="240" height="40" rx="0" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="2"/>
-  <text x="610" y="555" text-anchor="middle" font-size="10" fill="#666">Home</text>
+  <text x="610" y="555" text-anchor="middle" font-size="10" fill="#666">홈</text>
   <line x1="640" y1="530" x2="640" y2="570" stroke="#E5E5E5" stroke-width="1"/>
-  <text x="675" y="555" text-anchor="middle" font-size="10" font-weight="700" fill="#1a1a1a">Category</text>
+  <text x="675" y="555" text-anchor="middle" font-size="10" font-weight="700" fill="#1a1a1a">카테고리</text>
   <line x1="710" y1="530" x2="710" y2="570" stroke="#E5E5E5" stroke-width="1"/>
   <text x="745" y="555" text-anchor="middle" font-size="10" fill="#666">...</text>
 
-  <text x="450" y="600" text-anchor="middle" font-size="12" fill="#666" font-style="italic">From below the fold to a bottom tab — tapping the Category tab switches the VLP view to the Category List.</text>
+  <text x="450" y="600" text-anchor="middle" font-size="12" fill="#666" font-style="italic">스크롤 아래에 있던 카테고리 리스트를 하단 탭으로 — 카테고리 탭을 누르면 VLP 화면이 카테고리 리스트로 전환됨.</text>
 
 </svg>
