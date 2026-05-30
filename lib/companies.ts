@@ -1,4 +1,4 @@
-import type { Language } from '@/lib/language/types';
+import type { Language } from "@/lib/language/types";
 
 interface CompanyConfig {
   color: string;
@@ -8,11 +8,28 @@ interface CompanyConfig {
 
 const COMPANY_MAP = new Map<string, CompanyConfig>([
   [
-    'fieldguide',
+    "fieldguide",
     {
-      color: '#2EB85A',
-      projectSlugs: ['ai-recipe-search', 'oncall-automation', 'location-routing'],
-      language: 'en',
+      color: "#2EB85A",
+      projectSlugs: [
+        "ai-recipe-search",
+        "oncall-automation",
+        "location-routing",
+      ],
+      language: "en",
+    },
+  ],
+  [
+    "tumblbug",
+    {
+      color: "#EC6660",
+      projectSlugs: [
+        "ai-recipe-search",
+        "location-routing",
+        "oncall-automation",
+        "vlp-dynamic-bottom-nav-bar",
+      ],
+      language: "ko",
     },
   ],
 ]);
