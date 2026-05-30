@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
+import { headers } from "next/headers";
+import { COMPANY_HEADER } from "@/middleware";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { getCurrentLanguage } from "@/lib/language";
@@ -22,7 +24,9 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const language = await getCurrentLanguage();
+  const headersList = await headers();
+  const company = headersList.get(COMPANY_HEADER) ?? undefined;
+  const language = await getCurrentLanguage(company);
   const translations = getTranslations(language);
 
   return (

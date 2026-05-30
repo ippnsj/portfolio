@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { BRAND_PARAMS } from '@/lib/brand';
 import type { Project } from '@/lib/projects';
 import { Tag } from './Tag';
 
@@ -10,8 +11,8 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, company, color }: ProjectCardProps) {
   const queryEntries = [
-    company && ['company', company],
-    color && ['color', color],
+    company && [BRAND_PARAMS.company, company],
+    color && [BRAND_PARAMS.color, color],
   ].filter((entry): entry is [string, string] => Boolean(entry));
   const queryString = queryEntries.length
     ? `?${new URLSearchParams(queryEntries).toString()}`

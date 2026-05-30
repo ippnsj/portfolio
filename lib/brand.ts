@@ -1,6 +1,11 @@
 import { getCompanyConfig } from '@/lib/companies';
 import { isValidHexColor } from '@/lib/utils';
 
+export const BRAND_PARAMS = {
+  company: 'company',
+  color: 'color',
+} as const;
+
 interface BrandParams {
   company?: string;
   color?: string;
@@ -9,9 +14,11 @@ interface BrandParams {
 export function parseBrandParams(
   params: Record<string, string | string[] | undefined>,
 ): BrandParams {
+  const companyValue = params[BRAND_PARAMS.company];
+  const colorValue = params[BRAND_PARAMS.color];
   return {
-    company: typeof params.company === 'string' ? params.company : undefined,
-    color: typeof params.color === 'string' ? params.color : undefined,
+    company: typeof companyValue === 'string' ? companyValue : undefined,
+    color: typeof colorValue === 'string' ? colorValue : undefined,
   };
 }
 
