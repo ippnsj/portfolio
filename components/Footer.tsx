@@ -1,12 +1,8 @@
 import { FiCode } from 'react-icons/fi';
 import { CONTACT_LINKS } from '@/lib/contact';
-import { getCurrentLanguage } from '@/lib/language';
-import { getTranslations } from '@/lib/translations';
+import type { Translations } from '@/lib/translations';
 
-export async function Footer() {
-  const language = await getCurrentLanguage();
-  const translations = getTranslations(language);
-
+export function Footer({ translations }: { translations: Translations }) {
   return (
     <footer className="mt-8 border-t border-gray-200 py-8">
       <nav

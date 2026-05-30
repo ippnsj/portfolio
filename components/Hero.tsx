@@ -7,7 +7,7 @@ export function Hero({ translations }: { translations: Translations }) {
       <h1 className="text-5xl font-bold tracking-tight">
         {translations.hero.name}
       </h1>
-      <p className="mt-4 text-xl text-muted">{translations.hero.headline}</p>
+      <p className="mt-4 text-xl text-muted">Software Engineer</p>
       <nav
         className="mt-3 flex flex-wrap gap-x-6 gap-y-2"
         aria-label="Contact links"

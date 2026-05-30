@@ -1,7 +1,9 @@
 export interface Translations {
+  header: {
+    title: string;
+  };
   hero: {
     name: string;
-    headline: string;
   };
   sections: {
     projects: string;

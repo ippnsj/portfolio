@@ -1,30 +1,37 @@
-import type { Metadata } from 'next';
-import { Geist } from 'next/font/google';
-import { Footer } from '@/components/Footer';
-import './globals.css';
+import type { Metadata } from "next";
+import { Geist } from "next/font/google";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import { getCurrentLanguage } from "@/lib/language";
+import { getTranslations } from "@/lib/translations";
+import "./globals.css";
 
 const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: 'Sojung Lee — Portfolio',
+  title: "Sojung Lee — Portfolio",
   description:
-    'Software engineer building reliable, user-focused products. Interested in enhancing team effectiveness.',
+    "Software engineer building reliable, user-focused products. Interested in enhancing team effectiveness.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const language = await getCurrentLanguage();
+  const translations = getTranslations(language);
+
   return (
     <html lang="en" className={`${geistSans.variable} antialiased`}>
       <body>
+        <Header language={language} translations={translations} />
         {children}
         <div className="mx-auto max-w-3xl px-6">
-          <Footer />
+          <Footer translations={translations} />
         </div>
       </body>
     </html>

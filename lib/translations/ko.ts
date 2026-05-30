@@ -1,9 +1,11 @@
 import type { Translations } from './types';
 
 export const ko: Translations = {
+  header: {
+    title: '이소정의 포트폴리오',
+  },
   hero: {
     name: '이소정',
-    headline: '소프트웨어 엔지니어',
   },
   sections: {
     projects: '프로젝트',

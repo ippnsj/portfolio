@@ -1,9 +1,11 @@
 import type { Translations } from './types';
 
 export const en: Translations = {
+  header: {
+    title: "Sojung's Portfolio",
+  },
   hero: {
     name: 'Sojung Lee',
-    headline: 'Software Engineer',
   },
   sections: {
     projects: 'Projects',
