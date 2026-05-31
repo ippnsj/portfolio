@@ -24,11 +24,14 @@ export function Footer({ translations }: { translations: Translations }) {
           </a>
         ))}
       </nav>
+      <p className="mt-4 text-sm text-muted">
+        React · Next.js · TypeScript · Tailwind CSS
+      </p>
       <a
         href="https://github.com/ippnsj/portfolio"
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-4 flex items-center gap-1.5 text-sm text-muted hover:text-foreground"
+        className="mt-2 flex items-center gap-1.5 text-sm text-muted hover:text-foreground"
       >
         <FiCode size={14} />
         {translations.footer.sourceCode}

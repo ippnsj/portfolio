@@ -1,3 +1,4 @@
+import { About } from '@/components/About';
 import { Hero } from '@/components/Hero';
 import { Projects } from '@/components/Projects';
 import { Skills } from '@/components/Skills';
@@ -27,6 +28,7 @@ export default async function Home({
       }
     >
       <Hero translations={translations} />
+      <About translations={translations} />
       <Projects projects={projects} company={company} color={color} translations={translations} />
       <Skills translations={translations} />
     </main>

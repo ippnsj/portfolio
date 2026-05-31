@@ -6,8 +6,12 @@ export interface Translations {
     name: string;
   };
   sections: {
+    about: string;
     projects: string;
     skills: string;
+  };
+  about: {
+    paragraphs: string[];
   };
   detail: {
     background: string;
