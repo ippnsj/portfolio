@@ -3,6 +3,7 @@ import { aiRecipeSearch } from './ai-recipe-search';
 import { locationRouting } from './location-routing';
 import { oncallAutomation } from './oncall-automation';
 import { vlpDynamicBottomNavBar } from './vlp-bottom-nav-bar';
+import { vlpTabNavigation } from './vlp-tab-navigation';
 import {
   getProjectBySlug,
   getProjectsForCompany,
@@ -13,6 +14,7 @@ const ALL_PROJECTS_EN = [
   locationRouting.en,
   oncallAutomation.en,
   vlpDynamicBottomNavBar.en,
+  vlpTabNavigation.en,
 ];
 
 const ALL_PROJECTS_KO = [
@@ -20,6 +22,7 @@ const ALL_PROJECTS_KO = [
   locationRouting.ko,
   oncallAutomation.ko,
   vlpDynamicBottomNavBar.ko,
+  vlpTabNavigation.ko,
 ];
 
 describe('getProjectsForCompany', () => {

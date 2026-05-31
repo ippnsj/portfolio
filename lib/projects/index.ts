@@ -5,6 +5,7 @@ import { locationRouting } from './location-routing';
 import { oncallAutomation } from './oncall-automation';
 import type { Project, ProjectGroup } from './types';
 import { vlpDynamicBottomNavBar } from './vlp-bottom-nav-bar';
+import { vlpTabNavigation } from './vlp-tab-navigation';
 
 export type { KeyDecision, Media, Project, ProjectSection } from './types';
 
@@ -13,6 +14,7 @@ const PROJECT_GROUPS: ProjectGroup[] = [
   locationRouting,
   oncallAutomation,
   vlpDynamicBottomNavBar,
+  vlpTabNavigation,
 ];
 
 const PROJECTS_BY_LANGUAGE: Record<Language, Project[]> = {

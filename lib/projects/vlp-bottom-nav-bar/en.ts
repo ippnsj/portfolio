@@ -3,7 +3,7 @@ import { vlpDynamicBottomNavBarShared } from "./shared";
 
 export const vlpDynamicBottomNavBarEn: Project = {
   ...vlpDynamicBottomNavBarShared,
-  title: "VLP Dynamic Bottom Navigation Bar",
+  title: "Vendor Landing Page Dynamic Bottom Navigation Bar",
   period: "January 2026 – March 2026",
   role: "Architecture design, scroll-linked bottom bar animation proposal, PoC design and implementation",
   summary:
