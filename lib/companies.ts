@@ -32,6 +32,19 @@ const COMPANY_MAP = new Map<string, CompanyConfig>([
       language: "ko",
     },
   ],
+  [
+    "medility",
+    {
+      color: "#58C074",
+      projectSlugs: [
+        "ai-recipe-search",
+        "vlp-tab-navigation",
+        "location-routing",
+        "oncall-automation",
+      ],
+      language: "ko",
+    },
+  ],
 ]);
 
 export type { CompanyConfig };
