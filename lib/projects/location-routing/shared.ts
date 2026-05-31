@@ -1,4 +1,7 @@
-export const locationRoutingShared = {
+import type { ProjectShared } from '../types';
+
+export const locationRoutingShared: ProjectShared = {
   slug: 'location-routing',
-  stack: ['Flutter', 'BLoC'],
+  status: 'done',
+  stack: ['Flutter', 'BLoC', 'Dart'],
 };

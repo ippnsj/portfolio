@@ -27,6 +27,7 @@ export function Projects({
             project={project}
             company={company}
             color={color}
+            translations={translations}
           />
         ))}
       </div>

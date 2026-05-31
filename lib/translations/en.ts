@@ -22,4 +22,8 @@ export const en: Translations = {
   footer: {
     sourceCode: 'View source on GitHub',
   },
+  status: {
+    inProgress: 'In Progress',
+    done: 'Done',
+  },
 };

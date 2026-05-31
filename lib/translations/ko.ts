@@ -22,4 +22,8 @@ export const ko: Translations = {
   footer: {
     sourceCode: 'GitHub 소스 보기',
   },
+  status: {
+    inProgress: '진행 중',
+    done: '완료',
+  },
 };

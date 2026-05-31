@@ -1,4 +1,7 @@
-export const vlpTabNavigationShared = {
+import type { ProjectShared } from '../types';
+
+export const vlpTabNavigationShared: ProjectShared = {
   slug: 'vlp-tab-navigation',
-  stack: [],
+  status: 'in-progress',
+  stack: ['Flutter', 'BLoC', 'Dart', 'RxDart'],
 };

@@ -7,7 +7,7 @@ import type { Project, ProjectGroup } from './types';
 import { vlpDynamicBottomNavBar } from './vlp-bottom-nav-bar';
 import { vlpTabNavigation } from './vlp-tab-navigation';
 
-export type { KeyDecision, Media, Project, ProjectSection } from './types';
+export type { KeyDecision, Media, Project, ProjectSection, ProjectStatus } from './types';
 
 const PROJECT_GROUPS: ProjectGroup[] = [
   aiRecipeSearch,

@@ -20,4 +20,8 @@ export interface Translations {
   footer: {
     sourceCode: string;
   };
+  status: {
+    inProgress: string;
+    done: string;
+  };
 }

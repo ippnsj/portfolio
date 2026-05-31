@@ -2,6 +2,7 @@ import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
+import { StatusBadge } from '@/components/StatusBadge';
 import { Tag } from '@/components/Tag';
 import { parseBrandParams, resolveBrandColor } from '@/lib/brand';
 import { DEFAULT_LANGUAGE, getCurrentLanguage } from '@/lib/language';
@@ -18,7 +19,10 @@ function ProjectHero({
 }) {
   return (
     <section className="pb-4">
-      <h1 className="text-4xl font-bold tracking-tight">{project.title}</h1>
+      <StatusBadge status={project.status} translations={translations} />
+      <h1 className="mt-3 text-4xl font-bold tracking-tight">
+        {project.title}
+      </h1>
       <p className="mt-4 text-lg leading-relaxed text-muted">
         {project.summary}
       </p>

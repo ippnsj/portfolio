@@ -18,11 +18,17 @@ export interface KeyDecision {
   media?: Media[];
 }
 
-export interface Project {
+export type ProjectStatus = 'in-progress' | 'done';
+
+export interface ProjectShared {
   slug: string;
+  status: ProjectStatus;
+  stack: string[];
+}
+
+export interface Project extends ProjectShared {
   title: string;
   period: string;
-  stack: string[];
   role: string;
   summary: string;
   background: ProjectSection;
