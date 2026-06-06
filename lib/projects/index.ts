@@ -11,13 +11,13 @@ import { vlpTabNavigation } from './vlp-tab-navigation';
 export type { KeyDecision, Media, Project, ProjectSection, ProjectStatus } from './types';
 
 const PROJECT_GROUPS: ProjectGroup[] = [
+  vlpTabNavigation,
+  vlpDynamicBottomNavBar,
+  locationRouting,
+  oodFallbackUX,
   aiRecipeSearch,
   brokenImageAutomation,
-  locationRouting,
   oncallAutomation,
-  oodFallbackUX,
-  vlpDynamicBottomNavBar,
-  vlpTabNavigation,
 ];
 
 const PROJECTS_BY_LANGUAGE: Record<Language, Project[]> = {
