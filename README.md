@@ -6,20 +6,22 @@ Personal portfolio site for Sojung Lee.
 
 ## About
 
-A minimal, code-first site focused on the work itself.
+A minimal, code-first portfolio focused on the work itself.
 
-Supports per-recipient customization via URL params: a registered company name maps to a curated brand color and a filtered set of projects, while an arbitrary color param applies a custom color with all projects shown.
+Supports lightweight per-recipient customization via URL params: an arbitrary brand color (`?color=`) and an initial language hint (`?lang=`). Visitors can also switch the display language from the header.
 
 ## Features
 
-- **Dynamic theming** via URL params (`?company=` or `?color=`)
-- **Light mode** — consistent with resume and cover letter
+- **Dynamic brand color** via `?color=` URL param
+- **Initial language hint** via `?lang=` URL param (one-shot — sets cookie and redirects to a clean URL)
+- **Language switcher** in the header (English / Korean)
+- **Light mode only** — consistent with resume and cover letter
 - **Static-first** — all content lives in code, rendered as Server Components
-- **English only** in this iteration
 
 ## Tech stack
 
-- [Next.js 15+](https://nextjs.org/) (App Router)
+- [React](https://react.dev/) 19
+- [Next.js](https://nextjs.org/) 16 (App Router)
 - [TypeScript](https://www.typescriptlang.org/) (strict mode)
 - [Tailwind CSS v4](https://tailwindcss.com/) (CSS-first config via `@theme`)
 - [Vitest](https://vitest.dev/) (testing)
@@ -35,13 +37,11 @@ npm run dev
 
 Visit [http://localhost:3000](http://localhost:3000).
 
-## Customization
-
-Default: royal blue brand color, all projects shown.
+## URL params
 
 ```
-/?company=companyName     # registered company → mapped color + curated projects
-/?color=hexColor          # arbitrary color → all projects shown
+/?color=2EB85A     # custom brand color (hex without #; # is also accepted)
+/?lang=ko          # initial language hint — sets cookie, redirects to clean URL
 ```
 
-Currently the project set is the same across all params — the filtering infrastructure is in place for future expansion as new projects are added.
+Once `?lang=` is consumed, the cookie persists. Switching language via the header updates the cookie. Subsequent `?lang=` visits overwrite it.
