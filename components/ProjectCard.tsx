@@ -7,23 +7,17 @@ import { Tag } from './Tag';
 
 interface ProjectCardProps {
   project: Project;
-  company?: string;
   color?: string;
   translations: Translations;
 }
 
 export function ProjectCard({
   project,
-  company,
   color,
   translations,
 }: ProjectCardProps) {
-  const queryEntries = [
-    company && [BRAND_PARAMS.company, company],
-    color && [BRAND_PARAMS.color, color],
-  ].filter((entry): entry is [string, string] => Boolean(entry));
-  const queryString = queryEntries.length
-    ? `?${new URLSearchParams(queryEntries).toString()}`
+  const queryString = color
+    ? `?${new URLSearchParams({ [BRAND_PARAMS.color]: color }).toString()}`
     : '';
 
   return (

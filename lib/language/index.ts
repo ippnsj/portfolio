@@ -1,5 +1,4 @@
 import { cookies } from 'next/headers';
-import { getCompanyConfig } from '@/lib/companies';
 import {
   DEFAULT_LANGUAGE,
   isLanguage,
@@ -14,17 +13,11 @@ export {
   LANGUAGES,
 } from './types';
 
-export async function getCurrentLanguage(company?: string): Promise<Language> {
+export async function getCurrentLanguage(): Promise<Language> {
   const cookieStore = await cookies();
   const cookieValue = cookieStore.get(LANGUAGE_COOKIE)?.value;
   if (isLanguage(cookieValue)) {
     return cookieValue;
   }
-
-  const companyConfig = company ? getCompanyConfig(company) : undefined;
-  if (companyConfig) {
-    return companyConfig.language;
-  }
-
   return DEFAULT_LANGUAGE;
 }

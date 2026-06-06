@@ -1,12 +1,9 @@
 import { type NextRequest, NextResponse } from 'next/server';
-import { BRAND_PARAMS } from '@/lib/brand';
 import {
   isLanguage,
   LANG_PARAM,
   LANGUAGE_COOKIE,
 } from '@/lib/language/types';
-
-export const COMPANY_HEADER = 'x-company';
 
 export function middleware(request: NextRequest) {
   // URL ?lang= is a one-shot signal: set cookie, then redirect to a clean URL
@@ -24,12 +21,9 @@ export function middleware(request: NextRequest) {
     return response;
   }
 
-  const company = request.nextUrl.searchParams.get(BRAND_PARAMS.company);
-  if (!company) {
-    return NextResponse.next();
-  }
-
-  const requestHeaders = new Headers(request.headers);
-  requestHeaders.set(COMPANY_HEADER, company);
-  return NextResponse.next({ request: { headers: requestHeaders } });
+  return NextResponse.next();
 }
+
+export const config = {
+  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
+};

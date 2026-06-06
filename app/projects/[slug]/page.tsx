@@ -7,7 +7,7 @@ import { Tag } from '@/components/Tag';
 import { parseBrandParams, resolveBrandColor } from '@/lib/brand';
 import { DEFAULT_LANGUAGE, getCurrentLanguage } from '@/lib/language';
 import type { Media, Project } from '@/lib/projects';
-import { getProjectBySlug, getProjectsForCompany } from '@/lib/projects';
+import { getAllProjects, getProjectBySlug } from '@/lib/projects';
 import { getTranslations, type Translations } from '@/lib/translations';
 
 function ProjectHero({
@@ -122,22 +122,16 @@ function MediaList({ items }: { items: Media[] }) {
 }
 
 export function generateStaticParams(): { slug: string }[] {
-  return getProjectsForCompany({
-    company: undefined,
-    language: DEFAULT_LANGUAGE,
-  }).map((p) => ({ slug: p.slug }));
+  return getAllProjects(DEFAULT_LANGUAGE).map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
   params,
-  searchParams,
 }: {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const { slug } = await params;
-  const { company } = parseBrandParams(await searchParams);
-  const language = await getCurrentLanguage(company);
+  const language = await getCurrentLanguage();
   const project = getProjectBySlug({ slug, language });
   if (!project) return { title: 'Project Not Found' };
   return {
@@ -155,7 +149,7 @@ export default async function ProjectPage({
 }) {
   const { slug } = await params;
   const brandParams = parseBrandParams(await searchParams);
-  const language = await getCurrentLanguage(brandParams.company);
+  const language = await getCurrentLanguage();
   const translations = getTranslations(language);
   const project = getProjectBySlug({ slug, language });
   if (!project) notFound();

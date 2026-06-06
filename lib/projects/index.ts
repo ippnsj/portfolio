@@ -1,4 +1,3 @@
-import { getCompanyConfig } from '@/lib/companies';
 import type { Language } from '@/lib/language/types';
 import { aiRecipeSearch } from './ai-recipe-search';
 import { locationRouting } from './location-routing';
@@ -37,28 +36,6 @@ export function getProjectBySlug({
   return PROJECT_MAP_BY_LANGUAGE[language].get(slug);
 }
 
-function getProjectsBySlugs({
-  slugs,
-  language,
-}: {
-  slugs: string[];
-  language: Language;
-}): Project[] {
-  const map = PROJECT_MAP_BY_LANGUAGE[language];
-  return slugs
-    .map((slug) => map.get(slug))
-    .filter((p): p is Project => p !== undefined);
-}
-
-export function getProjectsForCompany({
-  company,
-  language,
-}: {
-  company: string | undefined;
-  language: Language;
-}): Project[] {
-  const config = company ? getCompanyConfig(company) : undefined;
-  return config
-    ? getProjectsBySlugs({ slugs: config.projectSlugs, language })
-    : PROJECTS_BY_LANGUAGE[language];
+export function getAllProjects(language: Language): Project[] {
+  return PROJECTS_BY_LANGUAGE[language];
 }
