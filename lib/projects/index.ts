@@ -1,7 +1,9 @@
 import type { Language } from '@/lib/language/types';
 import { aiRecipeSearch } from './ai-recipe-search';
+import { brokenImageAutomation } from './broken-image-automation';
 import { locationRouting } from './location-routing';
 import { oncallAutomation } from './oncall-automation';
+import { oodFallbackUX } from './ood-fallback-ux';
 import type { Project, ProjectGroup } from './types';
 import { vlpDynamicBottomNavBar } from './vlp-bottom-nav-bar';
 import { vlpTabNavigation } from './vlp-tab-navigation';
@@ -10,8 +12,10 @@ export type { KeyDecision, Media, Project, ProjectSection, ProjectStatus } from 
 
 const PROJECT_GROUPS: ProjectGroup[] = [
   aiRecipeSearch,
+  brokenImageAutomation,
   locationRouting,
   oncallAutomation,
+  oodFallbackUX,
   vlpDynamicBottomNavBar,
   vlpTabNavigation,
 ];

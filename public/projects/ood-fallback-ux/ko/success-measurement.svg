@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="system-ui, -apple-system, 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif">
+  <rect width="900" height="560" fill="#FAFAFA"/>
+  <text x="450" y="38" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1a1a" letter-spacing="1">정확한 성과 측정 설계</text>
+  <text x="450" y="58" text-anchor="middle" font-size="11.5" fill="#666">실패를 지우지 않고, 실제 진입에 성공한 경우에만 회복이 반영되도록 설계</text>
+
+  <rect x="290" y="78" width="320" height="40" rx="8" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="450" y="104" text-anchor="middle" font-size="13" font-weight="700" fill="#1a1a1a" font-family="ui-monospace, 'SF Mono', Menlo, monospace">SLI = (valid &#8722; failures) / valid</text>
+
+  <text x="450" y="138" text-anchor="middle" font-size="10.5" fill="#999">valid = 전체 유효 이벤트(분모, 성공·실패 모두 포함), failures = 그중 실패</text>
+
+  <text x="450" y="162" text-anchor="middle" font-size="11" fill="#666">진입할 때마다 valid +1, 실패하면 failures +1 &#8212; 실패는 사후에 지우지 않음</text>
+  <text x="450" y="181" text-anchor="middle" font-size="11" fill="#666">Branch 선택 후 VLP 진입 시 valid를 다시 +1 &#8594; 성공하면 실패 비중이 희석되고, 또 실패하면 그대로 누적</text>
+
+  <text x="60" y="205" font-size="11" font-weight="700" fill="#999" letter-spacing="1.2">케이스별 측정 결과</text>
+
+  <rect x="60" y="218" width="250" height="150" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+  <text x="80" y="244" font-size="12" font-weight="700" fill="#1a1a1a">&#9312; Branch 미선택 이탈</text>
+  <text x="80" y="264" font-size="10.5" fill="#666">Fallback 화면에서 선택 없이 나감</text>
+  <line x1="80" y1="278" x2="290" y2="278" stroke="#EEEEEE" stroke-width="1"/>
+  <text x="80" y="300" font-size="11" fill="#1a1a1a">1차 진입만: valid +1, 실패 +1</text>
+  <text x="80" y="322" font-size="11" fill="#666" font-family="ui-monospace, 'SF Mono', Menlo, monospace">(1 &#8722; 1) / 1</text>
+  <text x="80" y="350" font-size="15" font-weight="700" fill="#1a1a1a" font-family="ui-monospace, 'SF Mono', Menlo, monospace">= 0</text>
+  <text x="148" y="350" font-size="10.5" fill="#666">실패 그대로</text>
+
+  <rect x="325" y="218" width="250" height="150" rx="8" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="345" y="244" font-size="12" font-weight="700" fill="#1a1a1a">&#9313; Branch 선택 &#8594; 진입 성공</text>
+  <text x="345" y="264" font-size="10.5" fill="#666">매장 선택 후 VLP 진입 성공</text>
+  <line x1="345" y1="278" x2="555" y2="278" stroke="#EEEEEE" stroke-width="1"/>
+  <text x="345" y="300" font-size="11" fill="#1a1a1a">+ VLP 진입: valid +1 (실패 X)</text>
+  <text x="345" y="322" font-size="11" fill="#666" font-family="ui-monospace, 'SF Mono', Menlo, monospace">(2 &#8722; 1) / 2</text>
+  <text x="345" y="350" font-size="15" font-weight="700" fill="#1a1a1a" font-family="ui-monospace, 'SF Mono', Menlo, monospace">= 0.5</text>
+  <text x="418" y="350" font-size="10.5" fill="#666">부분 회복 반영</text>
+
+  <rect x="590" y="218" width="250" height="150" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+  <text x="610" y="244" font-size="12" font-weight="700" fill="#1a1a1a">&#9314; Branch 선택 &#8594; 또 실패</text>
+  <text x="610" y="264" font-size="10.5" fill="#666">다른 이유로 VLP 진입도 실패</text>
+  <line x1="610" y1="278" x2="820" y2="278" stroke="#EEEEEE" stroke-width="1"/>
+  <text x="610" y="300" font-size="11" fill="#1a1a1a">+ VLP 진입: valid +1, 실패 +1</text>
+  <text x="610" y="322" font-size="11" fill="#666" font-family="ui-monospace, 'SF Mono', Menlo, monospace">(2 &#8722; 2) / 2</text>
+  <text x="610" y="350" font-size="15" font-weight="700" fill="#1a1a1a" font-family="ui-monospace, 'SF Mono', Menlo, monospace">= 0</text>
+  <text x="678" y="350" font-size="10.5" fill="#666">실패 정확히 누적</text>
+
+  <text x="60" y="412" font-size="11" font-weight="700" fill="#999" letter-spacing="1.2">왜 정직한 측정인가</text>
+  <rect x="60" y="424" width="780" height="112" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+  <text x="80" y="450" font-size="11.5" fill="#1a1a1a">&#183; 1차 실패를 <tspan font-weight="700">사후에 지우지 않음</tspan> &#8212; fallback 화면을 띄운 것만으로 성공으로 덮지 않음</text>
+  <text x="80" y="475" font-size="11.5" fill="#1a1a1a">&#183; Branch를 선택하고 실제로 VLP 진입에 <tspan font-weight="700">성공한 경우에만</tspan> valid가 늘어 SLI가 회복(&#9313;), 또 실패하면 그대로 낮게 유지(&#9314;)</text>
+  <text x="80" y="500" font-size="11.5" fill="#1a1a1a">&#183; &#9313;의 결과가 1이 아니라 <tspan font-weight="700">0.5</tspan>인 이유 &#8212; "처음 한 번 막혔다가 회복"한 실제 경험을 그대로 반영</text>
+  <text x="80" y="524" font-size="10.5" fill="#999" font-style="italic">&#8594; SLI 개선이 측정 조작이 아니라 실제 사용자 회복에서 온 것임을 보장</text>
+</svg>

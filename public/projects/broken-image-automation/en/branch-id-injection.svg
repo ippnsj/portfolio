@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 388" font-family="system-ui, -apple-system, 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#999"/>
+    </marker>
+  </defs>
+  <rect width="900" height="388" fill="#FAFAFA"/>
+
+  <text x="450" y="38" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1a1a" letter-spacing="1">Injecting branch_id without duplicated logic</text>
+  <text x="450" y="58" text-anchor="middle" font-size="11.5" fill="#666">Provides the branch_id the Content team asked for, from one place, without touching every usage</text>
+
+  <!-- ===== Two rejected alternatives (left) ===== -->
+  <text x="60" y="92" font-size="11" font-weight="700" fill="#999" letter-spacing="1.2">ALTERNATIVES CONSIDERED</text>
+
+  <!-- Alt 1: Provider -->
+  <rect x="60" y="104" width="360" height="86" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+  <text x="78" y="128" font-size="12" font-weight="700" fill="#1a1a1a">Provider injection</text>
+  <text x="78" y="149" font-size="10.5" fill="#666">Only injectable when the route already carries branch_id</text>
+  <text x="78" y="167" font-size="10.5" fill="#999">→ no value to inject on screens that don’t carry it</text>
+  <text x="384" y="133" font-size="18" fill="#999">✕</text>
+
+  <!-- Alt 2: BLoC UseCase -->
+  <rect x="60" y="200" width="360" height="86" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+  <text x="78" y="224" font-size="12" font-weight="700" fill="#1a1a1a">Same UseCase in every BLoC</text>
+  <text x="78" y="245" font-size="10.5" fill="#666">Each screen’s BLoC holds the same fetching logic</text>
+  <text x="78" y="263" font-size="10.5" fill="#999">→ domain-fetching logic duplicated across BLoCs</text>
+  <text x="384" y="229" font-size="18" fill="#999">✕</text>
+
+  <!-- ===== Chosen: Inherited Widget (right) ===== -->
+  <text x="455" y="92" font-size="11" font-weight="700" fill="#1a1a1a" letter-spacing="1.2">CHOSEN — Inherited Widget</text>
+
+  <!-- Outer wrapper = whole route -->
+  <rect x="455" y="104" width="385" height="182" rx="8" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="2.5"/>
+  <text x="475" y="128" font-size="11.5" font-weight="700" fill="#1a1a1a">Inherited Widget (wraps the whole route)</text>
+  <text x="475" y="147" font-size="10" fill="#666">Fetches branch_id from the domain layer in one place only</text>
+
+  <!-- child screens inside -->
+  <rect x="475" y="160" width="111" height="58" rx="6" fill="#FAFAFA" stroke="#E5E5E5" stroke-width="1.2"/>
+  <text x="530" y="184" text-anchor="middle" font-size="10" fill="#666">Child screen A</text>
+  <text x="530" y="201" text-anchor="middle" font-size="9" fill="#999">reads from context</text>
+
+  <rect x="596" y="160" width="111" height="58" rx="6" fill="#FAFAFA" stroke="#E5E5E5" stroke-width="1.2"/>
+  <text x="651" y="184" text-anchor="middle" font-size="10" fill="#666">Child screen B</text>
+  <text x="651" y="201" text-anchor="middle" font-size="9" fill="#999">reads from context</text>
+
+  <rect x="717" y="160" width="111" height="58" rx="6" fill="#FAFAFA" stroke="#E5E5E5" stroke-width="1.2"/>
+  <text x="772" y="184" text-anchor="middle" font-size="10" fill="#666">Child screen C</text>
+  <text x="772" y="201" text-anchor="middle" font-size="9" fill="#999">reads from context</text>
+
+  <text x="475" y="245" font-size="10.5" fill="#1a1a1a">Child screens carry no fetching logic; they read from context</text>
+  <text x="475" y="265" font-size="10.5" fill="#666">branch_id is returned anywhere it exists, otherwise <tspan font-family="ui-monospace, 'SF Mono', Menlo, monospace">null</tspan></text>
+
+  <!-- Bottom takeaway -->
+  <rect x="60" y="312" width="780" height="58" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+  <text x="80" y="336" font-size="11" fill="#1a1a1a">Wrapping the whole route once <tspan font-weight="700">centralizes the domain fetch</tspan> — so without touching every usage or duplicating logic,</text>
+  <text x="80" y="356" font-size="11" fill="#1a1a1a">the branch_id the Content team asked for can be attached to the image observability data.</text>
+</svg>

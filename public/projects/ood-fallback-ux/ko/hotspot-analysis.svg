@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 590" font-family="system-ui, -apple-system, 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif">
+  <!-- Background -->
+  <rect width="900" height="590" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1a1a" letter-spacing="1">VENDOR SESSION — TRAFFIC SHARE vs ERROR RATE</text>
+  <text x="450" y="58" text-anchor="middle" font-size="11.5" fill="#666">작은 트래픽이 전체 실패의 절반을 만든다</text>
+
+  <!-- ============ LEFT PANEL: Traffic share ============ -->
+  <text x="80" y="100" font-size="11" font-weight="700" fill="#999" letter-spacing="1.2">TRAFFIC SHARE</text>
+
+  <!-- Traffic bar (stacked horizontal) -->
+  <!-- total width 360 from x=80 to x=440 -->
+  <rect x="80" y="115" width="342" height="44" rx="6" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+  <text x="251" y="142" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1a1a1a">Branch ID ~95%</text>
+
+  <rect x="426" y="115" width="18" height="44" rx="4" fill="#1a1a1a"/>
+  <text x="435" y="178" text-anchor="middle" font-size="10.5" fill="#1a1a1a" font-weight="700">~5%</text>
+  <text x="435" y="192" text-anchor="middle" font-size="9.5" fill="#666">Nearest</text>
+  <text x="435" y="204" text-anchor="middle" font-size="9.5" fill="#666">Darkstore</text>
+
+  <!-- ============ RIGHT PANEL: Error rate ============ -->
+  <text x="500" y="100" font-size="11" font-weight="700" fill="#999" letter-spacing="1.2">ERROR RATE (per request)</text>
+
+  <!-- Branch ID error rate (label above, bar below) -->
+  <text x="500" y="131" font-size="11.5" fill="#666">Branch ID</text>
+  <rect x="500" y="138" width="10" height="14" rx="2" fill="#CCCCCC"/>
+  <text x="516" y="150" font-size="11" fill="#666">~0.44%</text>
+
+  <!-- Nearest Darkstore error rate (label above, bar below) -->
+  <text x="500" y="178" font-size="11.5" font-weight="700" fill="#1a1a1a">Nearest Darkstore</text>
+  <rect x="500" y="185" width="180" height="14" rx="2" fill="#1a1a1a"/>
+  <text x="688" y="197" font-size="11" font-weight="700" fill="#1a1a1a">~8%</text>
+
+  <!-- ~18x annotation -->
+  <text x="500" y="221" font-size="11" fill="#666" font-style="italic">→ 요청당 에러율 약 18배</text>
+
+  <!-- Divider -->
+  <line x1="80" y1="240" x2="820" y2="240" stroke="#E5E5E5" stroke-width="1"/>
+
+  <!-- ============ BOTTOM: Resulting failure share ============ -->
+  <text x="80" y="272" font-size="11" font-weight="700" fill="#999" letter-spacing="1.2">RESULTING SHARE OF VENDOR SESSION FAILURES</text>
+
+  <!-- Failure share stacked bar -->
+  <rect x="80" y="288" width="392" height="48" rx="6" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+  <text x="276" y="317" text-anchor="middle" font-size="12.5" font-weight="600" fill="#666">Branch ID ~53%</text>
+
+  <rect x="476" y="288" width="350" height="48" rx="6" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="2.5"/>
+  <text x="651" y="311" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a1a1a">Nearest Darkstore ~47%</text>
+  <text x="651" y="328" text-anchor="middle" font-size="10.5" fill="#666">트래픽 5% → 실패의 절반</text>
+
+  <!-- ============ Conclusion card ============ -->
+  <rect x="80" y="368" width="746" height="74" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+  <text x="100" y="392" font-size="11.5" fill="#1a1a1a"><tspan font-weight="700">핵심:</tspan> Nearest Darkstore 에러의 약 90%가 한 종류 — <tspan font-weight="700" font-family="ui-monospace, 'SF Mono', Menlo, monospace">vendor not present in the map</tspan></text>
+  <text x="100" y="414" font-size="11.5" fill="#1a1a1a">이 단일 에러를 회복시키면 VLP SLI를 약 <tspan font-weight="700">0.4%p</tspan> 끌어올릴 수 있다고 계산 — 최소 노력, 최대 레버리지 지점.</text>
+  <text x="100" y="432" font-size="10.5" fill="#999" font-style="italic">트래픽 비중만 보면 지나치기 쉬운 구간을, 요청당 에러율로 분해해 특정.</text>
+
+  <!-- ============ Calculation method box ============ -->
+  <text x="80" y="478" font-size="11" font-weight="700" fill="#999" letter-spacing="1.2">HOW IT WAS CALCULATED</text>
+  <rect x="80" y="490" width="746" height="84" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+  <text x="100" y="513" font-size="11" fill="#1a1a1a"><tspan font-weight="700">1.</tspan> RPM을 일일 요청량으로 환산 <tspan font-family="ui-monospace, 'SF Mono', Menlo, monospace" fill="#666">(RPM × 60 × 24)</tspan> → 경로별 트래픽 비중: Branch ID ~95% vs Nearest Darkstore ~5%</text>
+  <text x="100" y="535" font-size="11" fill="#1a1a1a"><tspan font-weight="700">2.</tspan> 경로별 에러율 <tspan font-family="ui-monospace, 'SF Mono', Menlo, monospace" fill="#666">(에러 ÷ 요청)</tspan>: ~0.44% vs ~8% → 약 18배</text>
+  <text x="100" y="557" font-size="11" fill="#1a1a1a"><tspan font-weight="700">3.</tspan> 전체 Vendor Session 에러 중 비중: Branch ID ~53% vs Nearest Darkstore ~47%</text>
+</svg>

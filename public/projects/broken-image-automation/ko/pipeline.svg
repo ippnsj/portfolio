@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" font-family="system-ui, -apple-system, 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#999"/>
+    </marker>
+  </defs>
+  <rect width="900" height="360" fill="#FAFAFA"/>
+
+  <text x="450" y="38" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1a1a" letter-spacing="1">깨진 이미지 자동 리포팅 파이프라인</text>
+  <text x="450" y="58" text-anchor="middle" font-size="11.5" fill="#666">매주 자동 실행 &#8212; 사람이 챙기지 않아도 수정 대상이 콘텐츠 팀에 도착</text>
+
+  <!-- Trigger badge -->
+  <rect x="350" y="86" width="200" height="34" rx="17" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="450" y="108" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a1a1a">GitHub Actions &#183; 매주 월요일</text>
+
+  <!-- vertical arrow down -->
+  <line x1="450" y1="120" x2="450" y2="150" stroke="#999" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 1: New Relic -->
+  <rect x="40" y="158" width="185" height="120" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+  <text x="132" y="196" text-anchor="middle" font-size="12" font-weight="700" fill="#1a1a1a">1 · New Relic 수집</text>
+  <text x="132" y="220" text-anchor="middle" font-size="10.5" fill="#666">NRQL로 국가별</text>
+  <text x="132" y="236" text-anchor="middle" font-size="10.5" fill="#666">깨진 이미지(404)</text>
+  <text x="132" y="252" text-anchor="middle" font-size="10.5" fill="#666">빈도순 상위 10개 수집</text>
+
+  <line x1="225" y1="218" x2="262" y2="218" stroke="#999" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 2: Google Sheet -->
+  <rect x="264" y="158" width="185" height="120" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+  <text x="356" y="196" text-anchor="middle" font-size="12" font-weight="700" fill="#1a1a1a">2 · Google Sheet 기록</text>
+  <text x="356" y="220" text-anchor="middle" font-size="10.5" fill="#666">메타데이터와 함께</text>
+  <text x="356" y="236" text-anchor="middle" font-size="10.5" fill="#666">월별 시트에 자동 기록</text>
+  <text x="356" y="252" text-anchor="middle" font-size="10.5" fill="#666">(branch_id 등 식별 정보)</text>
+
+  <line x1="449" y1="218" x2="486" y2="218" stroke="#999" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 3: Slack -->
+  <rect x="488" y="158" width="185" height="120" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+  <text x="580" y="196" text-anchor="middle" font-size="12" font-weight="700" fill="#1a1a1a">3 · Slack 알림</text>
+  <text x="580" y="220" text-anchor="middle" font-size="10.5" fill="#666">콘텐츠 팀을 멘션해</text>
+  <text x="580" y="236" text-anchor="middle" font-size="10.5" fill="#666">시트 링크와 함께 알림</text>
+  <text x="580" y="252" text-anchor="middle" font-size="10.5" fill="#666">후속 수정 유도</text>
+
+  <line x1="673" y1="218" x2="710" y2="218" stroke="#999" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Outcome: Content team -->
+  <rect x="712" y="158" width="150" height="120" rx="8" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="2.5"/>
+  <text x="787" y="204" text-anchor="middle" font-size="12" font-weight="700" fill="#1a1a1a">콘텐츠 팀</text>
+  <text x="787" y="228" text-anchor="middle" font-size="10.5" fill="#666">매주 수정 대상</text>
+  <text x="787" y="248" text-anchor="middle" font-size="10.5" fill="#666">선제적으로 수정</text>
+
+  <!-- Bottom note -->
+  <rect x="40" y="300" width="822" height="40" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+  <text x="60" y="325" font-size="11" fill="#1a1a1a">관측 데이터(New Relic)와 수정 주체(콘텐츠 팀) 사이의 단절을, 사람 개입 없는 주간 자동 파이프라인으로 연결.</text>
+</svg>

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 590" font-family="system-ui, -apple-system, 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif">
+  <!-- Background -->
+  <rect width="900" height="590" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1a1a" letter-spacing="1">VENDOR SESSION — TRAFFIC SHARE vs ERROR RATE</text>
+  <text x="450" y="58" text-anchor="middle" font-size="11.5" fill="#666">A small slice of traffic drives half of all failures</text>
+
+  <!-- ============ LEFT PANEL: Traffic share ============ -->
+  <text x="80" y="100" font-size="11" font-weight="700" fill="#999" letter-spacing="1.2">TRAFFIC SHARE</text>
+
+  <!-- Traffic bar (stacked horizontal) -->
+  <!-- total width 360 from x=80 to x=440 -->
+  <rect x="80" y="115" width="342" height="44" rx="6" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+  <text x="251" y="142" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1a1a1a">Branch ID ~95%</text>
+
+  <rect x="426" y="115" width="18" height="44" rx="4" fill="#1a1a1a"/>
+  <text x="435" y="178" text-anchor="middle" font-size="10.5" fill="#1a1a1a" font-weight="700">~5%</text>
+  <text x="435" y="192" text-anchor="middle" font-size="9.5" fill="#666">Nearest</text>
+  <text x="435" y="204" text-anchor="middle" font-size="9.5" fill="#666">Darkstore</text>
+
+  <!-- ============ RIGHT PANEL: Error rate ============ -->
+  <text x="500" y="100" font-size="11" font-weight="700" fill="#999" letter-spacing="1.2">ERROR RATE (per request)</text>
+
+  <!-- Branch ID error rate (label above, bar below) -->
+  <text x="500" y="131" font-size="11.5" fill="#666">Branch ID</text>
+  <rect x="500" y="138" width="10" height="14" rx="2" fill="#CCCCCC"/>
+  <text x="516" y="150" font-size="11" fill="#666">~0.44%</text>
+
+  <!-- Nearest Darkstore error rate (label above, bar below) -->
+  <text x="500" y="178" font-size="11.5" font-weight="700" fill="#1a1a1a">Nearest Darkstore</text>
+  <rect x="500" y="185" width="180" height="14" rx="2" fill="#1a1a1a"/>
+  <text x="688" y="197" font-size="11" font-weight="700" fill="#1a1a1a">~8%</text>
+
+  <!-- ~18x annotation -->
+  <text x="500" y="221" font-size="11" fill="#666" font-style="italic">→ ~18× the per-request error rate</text>
+
+  <!-- Divider -->
+  <line x1="80" y1="240" x2="820" y2="240" stroke="#E5E5E5" stroke-width="1"/>
+
+  <!-- ============ BOTTOM: Resulting failure share ============ -->
+  <text x="80" y="272" font-size="11" font-weight="700" fill="#999" letter-spacing="1.2">RESULTING SHARE OF VENDOR SESSION FAILURES</text>
+
+  <!-- Failure share stacked bar -->
+  <rect x="80" y="288" width="392" height="48" rx="6" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+  <text x="276" y="317" text-anchor="middle" font-size="12.5" font-weight="600" fill="#666">Branch ID ~53%</text>
+
+  <rect x="476" y="288" width="350" height="48" rx="6" fill="#FFFFFF" stroke="#1a1a1a" stroke-width="2.5"/>
+  <text x="651" y="311" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a1a1a">Nearest Darkstore ~47%</text>
+  <text x="651" y="328" text-anchor="middle" font-size="10.5" fill="#666">5% of traffic → half the failures</text>
+
+  <!-- ============ Conclusion card ============ -->
+  <rect x="80" y="368" width="746" height="74" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+  <text x="100" y="392" font-size="11.5" fill="#1a1a1a"><tspan font-weight="700">Key:</tspan> ~90% of Nearest Darkstore errors are a single type — <tspan font-weight="700" font-family="ui-monospace, 'SF Mono', Menlo, monospace">vendor not present in the map</tspan></text>
+  <text x="100" y="414" font-size="11.5" fill="#1a1a1a">Recovering this single error could lift VLP SLI by ~<tspan font-weight="700">0.4%p</tspan> — the highest-leverage, lowest-effort fix.</text>
+  <text x="100" y="432" font-size="10.5" fill="#999" font-style="italic">A segment easy to overlook by traffic share alone, surfaced by breaking down per-request error rate.</text>
+
+  <!-- ============ Calculation method box ============ -->
+  <text x="80" y="478" font-size="11" font-weight="700" fill="#999" letter-spacing="1.2">HOW IT WAS CALCULATED</text>
+  <rect x="80" y="490" width="746" height="84" rx="8" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1.5"/>
+  <text x="100" y="513" font-size="11" fill="#1a1a1a"><tspan font-weight="700">1.</tspan> Convert RPM to daily request volume <tspan font-family="ui-monospace, 'SF Mono', Menlo, monospace" fill="#666">(RPM × 60 × 24)</tspan> → traffic share per path: Branch ID ~95% vs Nearest Darkstore ~5%</text>
+  <text x="100" y="535" font-size="11" fill="#1a1a1a"><tspan font-weight="700">2.</tspan> Per-path error rate <tspan font-family="ui-monospace, 'SF Mono', Menlo, monospace" fill="#666">(errors ÷ requests)</tspan>: ~0.44% vs ~8% → ~18×</text>
+  <text x="100" y="557" font-size="11" fill="#1a1a1a"><tspan font-weight="700">3.</tspan> Share of all Vendor Session errors: Branch ID ~53% vs Nearest Darkstore ~47%</text>
+</svg>
