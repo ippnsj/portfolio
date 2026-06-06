@@ -3,6 +3,7 @@ export type Language = (typeof LANGUAGES)[number];
 
 export const DEFAULT_LANGUAGE: Language = 'en';
 export const LANGUAGE_COOKIE = 'language';
+export const LANG_PARAM = 'lang';
 
 export const LANGUAGE_LABELS: Record<Language, string> = {
   en: 'English',
