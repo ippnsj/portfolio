@@ -3,5 +3,5 @@ import type { ProjectShared } from '../types';
 export const aiRecipeSearchShared: ProjectShared = {
   slug: 'ai-recipe-search',
   status: 'done',
-  stack: ['Flutter', 'n8n', 'LLM', 'Google Custom Search API'],
+  stack: ['Flutter', 'BLoC', 'Dart', 'n8n', 'LLM API', 'Google Custom Search API'],
 };

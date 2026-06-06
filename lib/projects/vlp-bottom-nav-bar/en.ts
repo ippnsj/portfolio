@@ -3,14 +3,14 @@ import { vlpDynamicBottomNavBarShared } from "./shared";
 
 export const vlpDynamicBottomNavBarEn: Project = {
   ...vlpDynamicBottomNavBarShared,
-  title: "Vendor Landing Page Dynamic Bottom Navigation Bar",
+  title: "Vendor Landing Page (VLP) Dynamic Bottom Navigation Bar",
   period: "January 2026 – March 2026",
   role: "Architecture design, scroll-linked bottom bar animation proposal, PoC design and implementation",
   summary:
     "A BE-driven dynamic tab system on the Vendor Landing Page (VLP) — designed so the BE alone can add tabs, reorder them, or surface existing routes as tabs without a client release.",
   background: {
     content: [
-      "The Vendor Landing Page (VLP) is the first screen a user lands on after picking a vendor. It is scroll-heavy by design — most users had to scroll past several promotional sections to reach category list.",
+      "The Vendor Landing Page (VLP) is the first screen a user lands on after picking a vendor. It is scroll-heavy by design — most users had to scroll past several promotional sections to reach the category list.",
       "Internal data showed category browsing was the highest-converting funnel — but its entry sat below the fold on VLP.",
       "The team hypothesized that pinning category as a tab on a bottom bar could compress the time to purchase intent, and that the same bar could host future campaign tabs (e.g., a Ramadan Specials destination).",
     ],
@@ -52,7 +52,7 @@ export const vlpDynamicBottomNavBarEn: Project = {
         "The bottom bar was intended to hide on scroll-down and reveal on scroll-up — a common pattern for maximizing content area without losing navigation.",
         "The team's first instinct was for VLP (the parent of each tab) to create a ScrollController, inject it into the tab's child widget, and listen to scroll events to drive the Nav Bar animation. I pushed back for two reasons. First, ScrollController injection requires each child widget to be built to receive and wire a controller from parent — but `route` tabs reuse existing routes that weren't designed that way, so adopting this pattern would mean code changes to every route, breaking the contract's no-FE-release promise. Second, it would tightly couple VLP to each tab's internal scrollable — any change to how a tab handles scrolling would risk breaking the Nav Bar animation.",
         "I proposed using NotificationListener at the parent level instead — VLP wraps the page and listens to ScrollNotifications bubbling up. The Nav Bar receives a simple show/hide signal, not a controller reference. Tabs of either type need no modification: ScrollNotifications bubble up naturally from any Scrollable.",
-        "**Performance concern:** NotificationListener fires on every scroll event by default, including unrelated ones (overscroll bounce, horizontal scrolls inside carousels, etc.). Introduced four guards filter notifications before animating the nav bar: ScrollUpdate events only, vertical axis only, valid scrollable range only, and significant movement only (filtering out minor noise below a pixel threshold).",
+        "**Performance concern:** NotificationListener fires on every scroll event by default, including unrelated ones (overscroll bounce, horizontal scrolls inside carousels, etc.). I implemented four guards to filter notifications before animating the nav bar: ScrollUpdate events only, vertical axis only, valid scrollable range only, and significant movement only (filtering out minor noise below a pixel threshold).",
         "Guards 1 and 3 may look like duplicates, but they catch different cases. Guard 1 filters out OverscrollNotification — a separate notification type that fires only at the first moment of overscroll. Guard 3 picks up what comes after: during iOS bounce-back, ScrollUpdateNotifications keep firing with pixels outside minScrollExtent/maxScrollExtent, and Guard 3 filters those out.",
       ],
       media: [

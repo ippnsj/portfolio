@@ -7,6 +7,5 @@ export const vlpDynamicBottomNavBarShared: ProjectShared = {
     'Flutter',
     'BLoC',
     'Dart',
-    'Feature Flag (Kill switch / A/B Experimentation)',
   ],
 };

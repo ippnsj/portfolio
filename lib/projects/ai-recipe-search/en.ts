@@ -3,7 +3,7 @@ import { aiRecipeSearchShared } from './shared';
 
 export const aiRecipeSearchEn: Project = {
   ...aiRecipeSearchShared,
-  title: 'AI-Powered Recipe + Bulk Ingredient Search PoC',
+  title: 'AI Recipe Search & Automatic Ingredient Extraction',
   period: 'October 2025',
   role: 'UX gap identification, design, implementation, internal demo',
   summary:
@@ -57,9 +57,9 @@ export const aiRecipeSearchEn: Project = {
   ],
   result: {
     content: [
-      'Cross-team endorsement: positive feedback from product and design teams, followed by a collaboration meeting with the ML team.',
-      'Limitation: production deferred due to lack of sponsorship.',
-      'Benefits demonstrated: single in-app flow with no dependency on external apps; user focuses on product selection instead of repetitive ingredient lookups.',
+      'Positive reception: positive feedback from the product and design teams, leading to a collaboration discussion with the ML team.',
+      'Limitation: didn\u2019t reach production due to organizational resource constraints.',
+      'Demonstrated value: a single in-app flow that removes dependency on external apps, letting users focus on product selection instead of repetitive ingredient lookups.',
     ],
     media: [
       {

@@ -3,9 +3,9 @@ import { locationRoutingShared } from './shared';
 
 export const locationRoutingEn: Project = {
   ...locationRoutingShared,
-  title: 'Reusable Location-Routing Component for Deeplink Recovery',
+  title: 'Location-Selection Component to Prevent Deeplink Failures',
   period: 'May – June 2025',
-  role: 'Component design and implementation',
+  role: 'Data-driven root-cause analysis, component design and implementation',
   summary:
     'A reusable Flutter component that prevents deeplink failures caused by missing location data — turning ~15,000 weekly errors into successful flows by routing users to the appropriate location-selection screen instead of an error page.',
   background: {
@@ -22,7 +22,7 @@ export const locationRoutingEn: Project = {
       {
         type: 'image',
         src: '/projects/location-routing/deeplink-error-top-three.png',
-        alt: 'Top three deep-link error categories with missing-location errors highlighted',
+        alt: 'Top three deeplink error categories with missing-location errors highlighted',
         caption: 'Top 3 Deeplink Errors',
       },
       {
@@ -59,8 +59,8 @@ export const locationRoutingEn: Project = {
   ],
   result: {
     content: [
-      'User impact: users now reach the location-selection flow instead of the error page; after selection, they auto-resume the originally intended page.',
-      'Team impact: another team adopted the component by wrapping their routes, and the same category of error dropped to near zero in their measurements.',
+      'User impact: users now reach the location-selection flow instead of an error page; after selection, they auto-resume the originally intended page. ~40% of users who reached the selection flow completed it and returned to the normal flow.',
+      'Team impact: the Food team adopted the component by simply wrapping their routes, dropping missing-location errors from ~20,000 per week to near zero (their metric).',
     ],
     media: [
       {
@@ -73,7 +73,7 @@ export const locationRoutingEn: Project = {
         type: 'image',
         src: '/projects/location-routing/result.png',
         alt: 'Error count graph showing drop from ~20,000 to near zero over one month',
-        caption: 'Missing-location errors dropped to near zero after adoption',
+        caption: 'Missing-location errors dropped to near zero after the Food team adopted it',
       },
     ],
   },

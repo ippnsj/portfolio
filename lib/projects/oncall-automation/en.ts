@@ -3,14 +3,14 @@ import { oncallAutomationShared } from "./shared";
 
 export const oncallAutomationEn: Project = {
   ...oncallAutomationShared,
-  title: "FE On-Call Process Automation with LLM-Powered Reporting",
+  title: "Frontend On-Call Process Automation",
   period: "October 2025",
   role: "Identified inefficiency, designed and built the automation, drove team adoption",
   summary:
     "A set of n8n workflows that consolidates fragmented on-call work into a single board and automates the end-of-rotation report, reducing report-writing time to about a third of the original effort and creating an environment where on-call engineers can focus on their assigned issues.",
   background: {
     content: [
-      "The FE on-call role had quietly accumulated overhead across intake, reporting, and handover — friction the team worked around instead of through.",
+      "The frontend on-call role had quietly accumulated overhead across intake, reporting, and handover — friction the team worked around instead of through.",
     ],
   },
   problem: {

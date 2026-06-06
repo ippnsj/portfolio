@@ -3,10 +3,9 @@ import { vlpTabNavigationShared } from "./shared";
 
 export const vlpTabNavigationEn: Project = {
   ...vlpTabNavigationShared,
-  title:
-    "Vendor Landing Page Tab Navigation — Improving Category-Based Store Browsing",
+  title: "Vendor Landing Page (VLP) Category-Based Top Tab Navigation",
   period: "May 2026 – Present",
-  role: "PoC design & implementation, reusable tab component design, key architecture decisions & edge-case handling, RFC co-authoring",
+  role: "PoC design & implementation, reusable tab component design, key architecture decisions & edge-case handling, authored RFCs",
   summary:
     "Introduced category-based tab navigation to the Vendor Landing Page (VLP) so users can jump straight to the area they want. Designed it to keep components reusable while syncing colors across the UI on each tab switch, and anticipated key edge cases before implementation. With PoC and RFC review complete, currently preparing a gradual rollout via experiment.",
   background: {
@@ -55,6 +54,16 @@ export const vlpTabNavigationEn: Project = {
           src: "/projects/vlp-tab-navigation/en/edge-cases.svg",
           alt: "Anticipated edge cases and defenses: block stale responses on fast tab switching, cache only the first page of Home-tab content, and exclude the tab list from caching.",
         },
+      ],
+    },
+    {
+      title: "Shared page-fetch package design (authored RFC)",
+      description: [
+        "Tab content is fetched from the server page by page. The plan was to build the logic as a shared package that multiple features could consume, and I identified the key design decisions this shared package needed to address and wrote them up as an RFC for team review.",
+        "**(1) Page accumulation delegated to the consumer:** the shared package doesn't accumulate pages — it returns one page at a time as a pure `Future<PageContent>`. Accumulation is handled by the consuming side's data layer via a `BehaviorSubject` that emits the full accumulated list as a stream, and the BLoC only subscribes and maps it to state. This keeps the shared package a stateless, pure API and prevents the BLoC from taking on both fetching and accumulation.",
+        "**(2) Errors are caught in the shared UseCase, never thrown to the BLoC:** the Repository converts DioException into domain exceptions (ServerException, etc.), and the shared UseCase catches those domain exceptions so they're never thrown up to the BLoC, preventing a Clean Architecture layer violation.",
+        "**(3) Observability centralized in the shared UseCase:** metric collection happens inside the shared UseCase, and only the UseCase is exported (Repository and DataSources stay internal). Consuming feature teams can't forget to add it, metric names/schemas don't diverge across features, and there's no boilerplate in consumers.",
+        "**(4) Network-level request cancellation:** to actually cancel the previous request on fast tab switching, a `CancelToken` lives in the `RemoteDataSource` (the layer that calls Dio directly), and a new request auto-cancels the previous one. `CancelToken` aborts the HTTP request itself at the TCP socket level, saving bandwidth and server resources — whereas `CancelableOperation` only makes the client ignore the response while the server keeps processing the request. That difference is why `CancelToken` was chosen.",
       ],
     },
   ],

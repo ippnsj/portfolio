@@ -3,10 +3,9 @@ import { vlpTabNavigationShared } from "./shared";
 
 export const vlpTabNavigationKo: Project = {
   ...vlpTabNavigationShared,
-  title:
-    "Vendor Landing Page 탭 네비게이션 — 카테고리 기반 매장 탐색 경험 개선",
+  title: "매장 첫 화면(VLP) 카테고리 기반 상단 탭 네비게이션 도입",
   period: "2026년 5월 – 현재",
-  role: "PoC 설계·구현, 재사용 가능한 탭 컴포넌트 설계, 주요 아키텍처 의사결정 및 엣지 케이스 해결, RFC 공동 작성",
+  role: "PoC 설계·구현, 재사용 가능한 탭 컴포넌트 설계, 주요 아키텍처 의사결정 및 엣지 케이스 해결, RFC 작성",
   summary:
     "Vendor Landing Page(VLP)에 카테고리 기반 탭 네비게이션을 도입해 매장 탐색 경로를 구조화. 탭마다 헤더·탭 바와 일부 하위 컴포넌트의 색이 함께 바뀌어야 하는 요구를 wrapper 위젯으로 풀고, 빠른 탭 전환·페이지네이션·캐싱이 얽힌 엣지 케이스를 구현 전에 예측해 방어하며 설계. 현재 PoC·RFC 리뷰를 마치고 experiment를 통한 점진 롤아웃을 준비 중.",
   background: {
@@ -56,11 +55,21 @@ export const vlpTabNavigationKo: Project = {
         },
       ],
     },
+    {
+      title: "공용 페이지 호출 패키지 설계 (RFC 작성)",
+      description: [
+        "탭 콘텐츠는 서버에서 페이지 단위로 받아오는 구조로, 이를 처리하는 로직을 여러 기능이 함께 쓰는 공용 패키지로 만들기로 정한 상황이었음. 이 공용 패키지가 다뤄야 할 핵심 설계 결정들을 직접 정리해 RFC로 작성하고 팀 리뷰를 진행함.",
+        "**① 페이지 누적 책임을 소비측에 위임:** 공용 패키지는 페이지를 누적하지 않고 한 페이지씩 순수하게 반환(`Future<PageContent>`)하도록 설계. 누적은 소비하는 쪽의 데이터 계층이 `BehaviorSubject`로 처리해 누적된 전체 목록을 스트림으로 내보내고, BLoC은 이를 구독해 상태로 매핑만 함. 공용 패키지를 상태 없는 순수 API로 유지하고, BLoC이 호출과 누적을 동시에 떠안지 않도록 책임을 분리.",
+        "**② 에러를 공용 UseCase에서 잡아 BLoC까지 던지지 않음:** Repository가 DioException을 도메인 예외(ServerException 등)로 변환하고, 공용 UseCase가 그 도메인 예외를 잡아 소비측으로 던지지 않음. 도메인 예외가 표현 계층인 BLoC까지 닿지 않아 Clean Architecture 계층 위반을 방지.",
+        "**③ 모니터링 지표를 공용 UseCase에 중앙화:** 지표 수집을 공용 UseCase 안에서 처리하고 패키지에서 UseCase만 노출(Repository·DataSource는 내부로 숨김). 소비 기능 팀이 지표 수집을 빠뜨릴 수 없고, 지표 이름·형식이 기능마다 갈라지지 않으며 반복 코드도 없음.",
+        "**④ 네트워크 레벨 요청 취소:** 빠른 탭 전환 시 이전 요청을 실제로 취소하기 위해 `CancelToken`을 `RemoteDataSource`(Dio를 직접 호출하는 계층)에 두고, 새 요청이 시작되면 이전 요청을 자동 취소. `CancelToken`은 TCP 소켓 레벨에서 HTTP 요청 자체를 중단해 대역폭과 서버 리소스를 아끼는 반면, `CancelableOperation`은 클라이언트가 응답을 무시할 뿐 서버에서는 요청이 계속 처리됨 — 이 차이 때문에 `CancelToken`을 선택.",
+      ],
+    },
   ],
   result: {
     content: [
       "PoC와 재사용 가능한 탭 컴포넌트 구현을 완료하고, 설계 방향을 RFC로 정리해 팀 리뷰를 마침.",
-      "현재 experiment를 통해 점진적으로 적용해 나갈 예정 — A/B 테스팅으로 안전하게 롤아웃할 수 있도록 준비.",
+      "현재 experiment를 통해 점진적으로 적용해 나갈 예정 — A/B 테스트로 안전하게 롤아웃할 수 있도록 준비.",
     ],
   },
 };

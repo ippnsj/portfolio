@@ -3,7 +3,7 @@ import { vlpDynamicBottomNavBarShared } from "./shared";
 
 export const vlpDynamicBottomNavBarKo: Project = {
   ...vlpDynamicBottomNavBarShared,
-  title: "Vendor Landing Page 동적 하단 네비게이션 바",
+  title: "매장 첫 화면(VLP) 동적 하단 네비게이션 바",
   period: "2026년 1월 – 3월",
   role: "아키텍처 설계, 스크롤 연동 하단 바 애니메이션 제안, PoC 설계·구현",
   summary:
@@ -17,8 +17,8 @@ export const vlpDynamicBottomNavBarKo: Project = {
   },
   problem: {
     content: [
-      "카테고리 페이지는 Grocery & Retail(G&R) 전체 페이지의 장바구니 담기(ATC) 액션 중 42.80%를 차지하는 — G&R 에서 전환율이 가장 높은 페이지. 그런데 진입점인 VLP의 카테고리 리스트 위젯이 첫 화면 끝 아래에 있어 스크롤해야만 도달 가능했음.",
-      "가장 단순한 구현은 탭이 하드코딩된 정적 하단 바였지만, 그러면 새로운 탭(예: 캠페인 탭)을 추가할 때마다 앱 릴리즈가 필요하고, 탭 변경은 모두 표준 릴리즈 사이클을 타야 했음 — 마케팅의 빠른 iteration과 맞지 않음.",
+      "카테고리 페이지는 Grocery & Retail(G&R) 전체 페이지의 장바구니 담기(ATC) 액션 중 42.80%를 차지하는 — G&R에서 전환율이 가장 높은 페이지. 그런데 진입점인 VLP의 카테고리 리스트 위젯이 첫 화면 끝 아래에 있어 스크롤해야만 도달 가능했음.",
+      "가장 단순한 구현은 탭이 하드코딩된 정적 하단 바였지만, 그러면 새로운 탭(예: 캠페인 탭)을 추가할 때마다 앱 릴리즈가 필요하고, 탭 변경은 모두 표준 릴리즈 사이클을 타야 했음 — 마케팅의 빠른 실험·변경 속도와 맞지 않음.",
     ],
     media: [
       {
@@ -33,8 +33,8 @@ export const vlpDynamicBottomNavBarKo: Project = {
       title: "서버 주도 동적 탭 구성",
       description: [
         "BE 응답이 어떤 탭이 존재할지와 각 탭이 무엇을 렌더링할지를 모두 정의. 각 탭은 두 가지 타입 중 하나:",
-        "`embedded_widget`: 위젯으로는 존재하지만 자체 deeplink/route가 없거나 필요 없는 콘텐츠. 별도 route 없이 위젯을 VLP 영역에 바로 embed. FE는 `widget_type → Widget` 매핑을 가지고 있고, BE가 widget_type을 보내면 어떤 위젯을 embed할지 결정됨. 새로운 embedded 타입이 추가되면 매핑 때문에 FE 릴리즈가 여전히 필요. 카테고리 리스트 위젯이 이에 해당 — VLP 안에서만 사용되므로 별도 라우트가 필요 없음.",
-        "`route`: 이미 존재하는 라우트로 접근 가능한 콘텐츠(예: deeplink). 기존 라우트를 탭으로 노출 — 탭 클릭 시 VLP는 유지된 채 content 영역만 해당 라우트의 content로 교체됨 (nested routing). 새 위젯 코드, 새 라우트 코드, FE 릴리즈 모두 필요 X — BE가 기존 라우트의 deeplink를 contract에 추가하기만 하면 됨. 카테고리 페이지가 이에 해당 — 이미 deeplink가 있었음.",
+        "`embedded_widget`: 위젯으로는 존재하지만 자체 deeplink/route가 없거나 필요 없는 콘텐츠. 별도 route 없이 위젯을 VLP 영역에 바로 삽입. FE는 `widget_type → Widget` 매핑을 가지고 있고, BE가 widget_type을 보내면 어떤 위젯을 삽입할지 결정됨. 새로운 embedded 타입이 추가되면 매핑 때문에 FE 릴리즈가 여전히 필요. 카테고리 리스트 위젯이 이에 해당 — VLP 안에서만 사용되므로 별도 라우트가 필요 없음.",
+        "`route`: 이미 존재하는 라우트로 접근 가능한 콘텐츠(예: deeplink). 기존 라우트를 탭으로 노출 — 탭 클릭 시 VLP는 유지된 채 content 영역만 해당 라우트의 content로 교체됨 (nested routing). 새 위젯 코드, 새 라우트 코드, FE 릴리즈 모두 필요 없음 — BE가 기존 라우트의 deeplink를 contract에 추가하기만 하면 됨. 카테고리 페이지가 이에 해당 — 이미 deeplink가 있었음.",
         "두 타입을 합치면 기존 콘텐츠의 두 형태를 모두 커버. 그리고 이 contract의 진짜 가치 — FE 릴리즈 없이 탭 추가 — 는 `route` 타입으로 가능.",
       ],
       media: [
@@ -76,7 +76,7 @@ export const vlpDynamicBottomNavBarKo: Project = {
   result: {
     content: [
       "kill switch와 A/B 테스트를 안전장치로 두고 배포. BE 응답 기반 동적 구성은 설계대로 동작 — 실험 기간 중 BE가 클라이언트 릴리즈 없이 탭 구성을 변경 가능했음.",
-      "A/B 테스트 자체는 탭 클릭률이 낮게 나옴 — 이 화면에서는 하단 바 탭 형식이 잘 맞지 않는다는 결과를 도출. 결과가 명확해진 뒤 feature flag를 꺼서 실험 종료 — 사용자 화면은 즉시 원래 VLP로 되돌아감. 코드 변경이나 클라이언트 릴리즈 X.",
+      "A/B 테스트 자체는 탭 클릭률이 낮게 나옴 — 이 화면에서는 하단 바 탭 형식이 잘 맞지 않는다는 결과를 도출. 결과가 명확해진 뒤 feature flag를 꺼서 실험 종료 — 사용자 화면은 즉시 원래 VLP로 되돌아감. 코드 변경이나 클라이언트 릴리즈 없음.",
       "핵심 학습은 가설 자체에 있었음: 카테고리 진입을 끌어올리는 것만으로는 부족하며 사용자는 여전히 탭 → 리스트 → 카테고리 페이지 진입의 단계를 거침. 오히려 중간 단계 자체를 줄여야 한다는 것을 깨달음.",
       "별도 성과: Rider 마이그레이션으로 G&R 전체 화면에서 navigator 접근 표준화 — 이 기능뿐 아니라 내비게이션 레이어 전체가 일관성을 갖게 됨.",
     ],
